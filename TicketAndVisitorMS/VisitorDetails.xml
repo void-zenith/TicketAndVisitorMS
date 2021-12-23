@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <DailyReport>
+    <TicketNo>sdfdsf</TicketNo>
+    <Namehead>dsfsd</Namehead>
+    <TicketDetails>sdf</TicketDetails>
+    <BookingDate>df</BookingDate>
+  </DailyReport>
+  <DailyReport>
+    <TicketNo>asdfadf</TicketNo>
+    <Namehead>df</Namehead>
+    <TicketDetails>aaaaaaaaaaa</TicketDetails>
+    <BookingDate>sdf</BookingDate>
+  </DailyReport>
+</NewDataSet>

@@ -1,15 +1,26 @@
-﻿namespace TicketAndVisitorMS
-{
-    using System;
-    using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.IO;
+using System.Windows.Forms;
+using System.Xml.Serialization;
 
+namespace TicketAndVisitorMS
+{
     public partial class EmployeePage : Form
     {
+        //to know if any row has been selected or not since i've added double click event to select a row
          bool isRowSelected = false;
 
+        //initializing serializer
+        XmlSerializer visitorSerializer;
+        //initializing list
+        List<TicketVisitorDetails> visitorDetails;
         public EmployeePage()
         {
             InitializeComponent();
+            visitorDetails = new List<TicketVisitorDetails>();
+            visitorSerializer = new XmlSerializer(typeof(List<TicketVisitorDetails>));
         }
 
         private void clearTextBox()
@@ -56,6 +67,7 @@
                         dataGridView1.Rows[0].Cells[2].Value = bookingdateBox.Text.Trim();
                         dataGridView1.Rows[0].Cells[3].Value = ticketDetailsBox.Text.Trim();
                         clearTextBox();
+                        isRowSelected = false;
                     }
                     else
                     {
@@ -108,7 +120,40 @@
                 ticketDetailsBox.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             }
             catch (ArgumentOutOfRangeException) { 
-                MessageBox.Show("exception"); 
+                MessageBox.Show("No Rows to select","Invalid Selection"); 
+            }
+        }
+
+        private void saveToXMLBtn_Click(object sender, EventArgs e)
+        {
+            if (!(dataGridView1.RowCount == 0)) {
+                FileStream fileStream = new FileStream("C:/ASP .net/VisitorAndTicketMS/TicketAndVisitorMS/TicketAndVisitorMS/VisitorDetails.xml", FileMode.OpenOrCreate, FileAccess.Write);
+                fileStream.Close();
+
+                DataSet dataSet = new DataSet();
+                DataTable dataTable = new DataTable();
+
+                dataTable.TableName = "DailyReport";
+
+                foreach (DataGridViewColumn col in dataGridView1.Columns) {
+                    dataTable.Columns.Add(col.Name);
+                }
+                dataSet.Tables.Add(dataTable);
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    DataRow dataRow = dataSet.Tables["DailyReport"].NewRow();
+                    foreach (DataGridViewColumn col in dataGridView1.Columns)
+                    {
+                        dataRow[col.Name] = row.Cells[col.Index].Value;
+                    }
+                    dataSet.Tables["DailyReport"].Rows.Add(dataRow);
+                }
+                dataSet.WriteXml(@"C:/ASP .net/VisitorAndTicketMS/TicketAndVisitorMS/TicketAndVisitorMS/VisitorDetails.xml");
+                MessageBox.Show("The File has been added Successfully");
+            }
+            else
+            {
+                MessageBox.Show("No data to export", "Export Failed");
             }
         }
     }

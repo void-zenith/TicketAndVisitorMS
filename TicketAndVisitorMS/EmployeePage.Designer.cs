@@ -44,14 +44,14 @@ namespace TicketAndVisitorMS
             this.panel2 = new System.Windows.Forms.Panel();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TicketNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Namehead = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TicketDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openCSVBtn = new System.Windows.Forms.Button();
             this.exportToCSVBtn = new System.Windows.Forms.Button();
             this.loadFromXMLBtn = new System.Windows.Forms.Button();
             this.saveToXMLBtn = new System.Windows.Forms.Button();
+            this.TicketNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Namehead = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TicketDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -229,34 +229,6 @@ namespace TicketAndVisitorMS
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
-            // TicketNo
-            // 
-            this.TicketNo.HeaderText = "Ticket No";
-            this.TicketNo.MinimumWidth = 6;
-            this.TicketNo.Name = "TicketNo";
-            this.TicketNo.Width = 125;
-            // 
-            // Namehead
-            // 
-            this.Namehead.HeaderText = "Name";
-            this.Namehead.MinimumWidth = 6;
-            this.Namehead.Name = "Namehead";
-            this.Namehead.Width = 125;
-            // 
-            // TicketDetails
-            // 
-            this.TicketDetails.HeaderText = "Ticket Details";
-            this.TicketDetails.MinimumWidth = 6;
-            this.TicketDetails.Name = "TicketDetails";
-            this.TicketDetails.Width = 125;
-            // 
-            // BookingDate
-            // 
-            this.BookingDate.HeaderText = "Booking Date";
-            this.BookingDate.MinimumWidth = 6;
-            this.BookingDate.Name = "BookingDate";
-            this.BookingDate.Width = 125;
-            // 
             // openCSVBtn
             // 
             this.openCSVBtn.Location = new System.Drawing.Point(729, 24);
@@ -292,6 +264,43 @@ namespace TicketAndVisitorMS
             this.saveToXMLBtn.TabIndex = 10;
             this.saveToXMLBtn.Text = "Save to XML";
             this.saveToXMLBtn.UseVisualStyleBackColor = true;
+            this.saveToXMLBtn.Click += new System.EventHandler(this.saveToXMLBtn_Click);
+            // 
+            // TicketNo
+            // 
+            this.TicketNo.HeaderText = "Ticket No";
+            this.TicketNo.MinimumWidth = 6;
+            this.TicketNo.Name = "TicketNo";
+            this.TicketNo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TicketNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TicketNo.Width = 125;
+            // 
+            // Namehead
+            // 
+            this.Namehead.HeaderText = "Name";
+            this.Namehead.MinimumWidth = 6;
+            this.Namehead.Name = "Namehead";
+            this.Namehead.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Namehead.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Namehead.Width = 125;
+            // 
+            // TicketDetails
+            // 
+            this.TicketDetails.HeaderText = "Ticket Details";
+            this.TicketDetails.MinimumWidth = 6;
+            this.TicketDetails.Name = "TicketDetails";
+            this.TicketDetails.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TicketDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TicketDetails.Width = 125;
+            // 
+            // BookingDate
+            // 
+            this.BookingDate.HeaderText = "Booking Date";
+            this.BookingDate.MinimumWidth = 6;
+            this.BookingDate.Name = "BookingDate";
+            this.BookingDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.BookingDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.BookingDate.Width = 125;
             // 
             // EmployeePage
             // 
