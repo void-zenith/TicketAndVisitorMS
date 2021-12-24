@@ -38,20 +38,20 @@ namespace TicketAndVisitorMS
             this.ticketDetailsBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nameBox = new System.Windows.Forms.TextBox();
-            this.nameTextfield = new System.Windows.Forms.Label();
-            this.ticketNoBox = new System.Windows.Forms.TextBox();
-            this.ticketNoTextfield = new System.Windows.Forms.Label();
+            this.namelabel = new System.Windows.Forms.Label();
+            this.TicketNoBox = new System.Windows.Forms.TextBox();
+            this.ticketnolabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TicketNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Namehead = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TicketDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openCSVBtn = new System.Windows.Forms.Button();
             this.exportToCSVBtn = new System.Windows.Forms.Button();
             this.loadFromXMLBtn = new System.Windows.Forms.Button();
             this.saveToXMLBtn = new System.Windows.Forms.Button();
-            this.TicketNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Namehead = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TicketDetails = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -68,9 +68,9 @@ namespace TicketAndVisitorMS
             this.panel1.Controls.Add(this.ticketDetailsBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.nameBox);
-            this.panel1.Controls.Add(this.nameTextfield);
-            this.panel1.Controls.Add(this.ticketNoBox);
-            this.panel1.Controls.Add(this.ticketNoTextfield);
+            this.panel1.Controls.Add(this.namelabel);
+            this.panel1.Controls.Add(this.TicketNoBox);
+            this.panel1.Controls.Add(this.ticketnolabel);
             this.panel1.Location = new System.Drawing.Point(59, 61);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1148, 250);
@@ -156,35 +156,35 @@ namespace TicketAndVisitorMS
             this.nameBox.Size = new System.Drawing.Size(182, 28);
             this.nameBox.TabIndex = 1;
             // 
-            // nameTextfield
+            // namelabel
             // 
-            this.nameTextfield.AutoSize = true;
-            this.nameTextfield.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTextfield.Location = new System.Drawing.Point(35, 69);
-            this.nameTextfield.Name = "nameTextfield";
-            this.nameTextfield.Size = new System.Drawing.Size(84, 29);
-            this.nameTextfield.TabIndex = 2;
-            this.nameTextfield.Text = "Name:";
+            this.namelabel.AutoSize = true;
+            this.namelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.namelabel.Location = new System.Drawing.Point(35, 69);
+            this.namelabel.Name = "namelabel";
+            this.namelabel.Size = new System.Drawing.Size(84, 29);
+            this.namelabel.TabIndex = 2;
+            this.namelabel.Text = "Name:";
             // 
-            // ticketNoBox
+            // TicketNoBox
             // 
-            this.ticketNoBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ticketNoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ticketNoBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ticketNoBox.Location = new System.Drawing.Point(164, 23);
-            this.ticketNoBox.Name = "ticketNoBox";
-            this.ticketNoBox.Size = new System.Drawing.Size(182, 28);
-            this.ticketNoBox.TabIndex = 0;
+            this.TicketNoBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TicketNoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TicketNoBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TicketNoBox.Location = new System.Drawing.Point(164, 23);
+            this.TicketNoBox.Name = "TicketNoBox";
+            this.TicketNoBox.Size = new System.Drawing.Size(182, 28);
+            this.TicketNoBox.TabIndex = 0;
             // 
-            // ticketNoTextfield
+            // ticketnolabel
             // 
-            this.ticketNoTextfield.AutoSize = true;
-            this.ticketNoTextfield.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ticketNoTextfield.Location = new System.Drawing.Point(35, 22);
-            this.ticketNoTextfield.Name = "ticketNoTextfield";
-            this.ticketNoTextfield.Size = new System.Drawing.Size(123, 29);
-            this.ticketNoTextfield.TabIndex = 0;
-            this.ticketNoTextfield.Text = "Ticket No:";
+            this.ticketnolabel.AutoSize = true;
+            this.ticketnolabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ticketnolabel.Location = new System.Drawing.Point(35, 22);
+            this.ticketnolabel.Name = "ticketnolabel";
+            this.ticketnolabel.Size = new System.Drawing.Size(123, 29);
+            this.ticketnolabel.TabIndex = 0;
+            this.ticketnolabel.Text = "Ticket No:";
             // 
             // panel2
             // 
@@ -217,8 +217,8 @@ namespace TicketAndVisitorMS
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TicketNo,
             this.Namehead,
-            this.TicketDetails,
-            this.BookingDate});
+            this.BookingDate,
+            this.TicketDetails});
             this.dataGridView1.Location = new System.Drawing.Point(40, 103);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
@@ -228,43 +228,6 @@ namespace TicketAndVisitorMS
             this.dataGridView1.Size = new System.Drawing.Size(1065, 150);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
-            // 
-            // openCSVBtn
-            // 
-            this.openCSVBtn.Location = new System.Drawing.Point(729, 24);
-            this.openCSVBtn.Name = "openCSVBtn";
-            this.openCSVBtn.Size = new System.Drawing.Size(104, 49);
-            this.openCSVBtn.TabIndex = 13;
-            this.openCSVBtn.Text = "Open CSV file";
-            this.openCSVBtn.UseVisualStyleBackColor = true;
-            // 
-            // exportToCSVBtn
-            // 
-            this.exportToCSVBtn.Location = new System.Drawing.Point(1020, 24);
-            this.exportToCSVBtn.Name = "exportToCSVBtn";
-            this.exportToCSVBtn.Size = new System.Drawing.Size(104, 49);
-            this.exportToCSVBtn.TabIndex = 12;
-            this.exportToCSVBtn.Text = "Export to CSV";
-            this.exportToCSVBtn.UseVisualStyleBackColor = true;
-            // 
-            // loadFromXMLBtn
-            // 
-            this.loadFromXMLBtn.Location = new System.Drawing.Point(36, 24);
-            this.loadFromXMLBtn.Name = "loadFromXMLBtn";
-            this.loadFromXMLBtn.Size = new System.Drawing.Size(130, 49);
-            this.loadFromXMLBtn.TabIndex = 11;
-            this.loadFromXMLBtn.Text = "Load from XML";
-            this.loadFromXMLBtn.UseVisualStyleBackColor = true;
-            // 
-            // saveToXMLBtn
-            // 
-            this.saveToXMLBtn.Location = new System.Drawing.Point(875, 24);
-            this.saveToXMLBtn.Name = "saveToXMLBtn";
-            this.saveToXMLBtn.Size = new System.Drawing.Size(104, 49);
-            this.saveToXMLBtn.TabIndex = 10;
-            this.saveToXMLBtn.Text = "Save to XML";
-            this.saveToXMLBtn.UseVisualStyleBackColor = true;
-            this.saveToXMLBtn.Click += new System.EventHandler(this.saveToXMLBtn_Click);
             // 
             // TicketNo
             // 
@@ -284,15 +247,6 @@ namespace TicketAndVisitorMS
             this.Namehead.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.Namehead.Width = 125;
             // 
-            // TicketDetails
-            // 
-            this.TicketDetails.HeaderText = "Ticket Details";
-            this.TicketDetails.MinimumWidth = 6;
-            this.TicketDetails.Name = "TicketDetails";
-            this.TicketDetails.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.TicketDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.TicketDetails.Width = 125;
-            // 
             // BookingDate
             // 
             this.BookingDate.HeaderText = "Booking Date";
@@ -302,11 +256,60 @@ namespace TicketAndVisitorMS
             this.BookingDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.BookingDate.Width = 125;
             // 
+            // TicketDetails
+            // 
+            this.TicketDetails.HeaderText = "Ticket Details";
+            this.TicketDetails.MinimumWidth = 6;
+            this.TicketDetails.Name = "TicketDetails";
+            this.TicketDetails.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.TicketDetails.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TicketDetails.Width = 125;
+            // 
+            // openCSVBtn
+            // 
+            this.openCSVBtn.Location = new System.Drawing.Point(736, 24);
+            this.openCSVBtn.Name = "openCSVBtn";
+            this.openCSVBtn.Size = new System.Drawing.Size(104, 49);
+            this.openCSVBtn.TabIndex = 13;
+            this.openCSVBtn.Text = "Open CSV file";
+            this.openCSVBtn.UseVisualStyleBackColor = true;
+            this.openCSVBtn.Click += new System.EventHandler(this.openCSVBtn_Click);
+            // 
+            // exportToCSVBtn
+            // 
+            this.exportToCSVBtn.Location = new System.Drawing.Point(1020, 24);
+            this.exportToCSVBtn.Name = "exportToCSVBtn";
+            this.exportToCSVBtn.Size = new System.Drawing.Size(104, 49);
+            this.exportToCSVBtn.TabIndex = 12;
+            this.exportToCSVBtn.Text = "Export to CSV";
+            this.exportToCSVBtn.UseVisualStyleBackColor = true;
+            this.exportToCSVBtn.Click += new System.EventHandler(this.exportToCSVBtn_Click);
+            // 
+            // loadFromXMLBtn
+            // 
+            this.loadFromXMLBtn.Location = new System.Drawing.Point(36, 24);
+            this.loadFromXMLBtn.Name = "loadFromXMLBtn";
+            this.loadFromXMLBtn.Size = new System.Drawing.Size(130, 49);
+            this.loadFromXMLBtn.TabIndex = 11;
+            this.loadFromXMLBtn.Text = "Load from XML";
+            this.loadFromXMLBtn.UseVisualStyleBackColor = true;
+            this.loadFromXMLBtn.Click += new System.EventHandler(this.loadFromXMLBtn_Click);
+            // 
+            // saveToXMLBtn
+            // 
+            this.saveToXMLBtn.Location = new System.Drawing.Point(875, 24);
+            this.saveToXMLBtn.Name = "saveToXMLBtn";
+            this.saveToXMLBtn.Size = new System.Drawing.Size(104, 49);
+            this.saveToXMLBtn.TabIndex = 10;
+            this.saveToXMLBtn.Text = "Save to XML";
+            this.saveToXMLBtn.UseVisualStyleBackColor = true;
+            this.saveToXMLBtn.Click += new System.EventHandler(this.saveToXMLBtn_Click);
+            // 
             // EmployeePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1263, 784);
+            this.ClientSize = new System.Drawing.Size(1269, 784);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "EmployeePage";
@@ -322,15 +325,15 @@ namespace TicketAndVisitorMS
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label ticketNoTextfield;
+        private System.Windows.Forms.Label ticketnolabel;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.TextBox bookingdateBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ticketDetailsBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nameBox;
-        private System.Windows.Forms.Label nameTextfield;
-        private System.Windows.Forms.TextBox ticketNoBox;
+        private System.Windows.Forms.Label namelabel;
+        private System.Windows.Forms.TextBox TicketNoBox;
         private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Panel panel2;
@@ -342,8 +345,8 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TicketNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Namehead;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TicketDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookingDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TicketDetails;
     }
 }
 
