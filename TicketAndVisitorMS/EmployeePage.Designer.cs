@@ -108,7 +108,7 @@ namespace TicketAndVisitorMS
             // 
             // bookingdateBox
             // 
-            this.bookingdateBox.Cursor = System.Windows.Forms.Cursors.No;
+            this.bookingdateBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.bookingdateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookingdateBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.bookingdateBox.Location = new System.Drawing.Point(564, 24);
@@ -128,7 +128,7 @@ namespace TicketAndVisitorMS
             // 
             // ticketDetailsBox
             // 
-            this.ticketDetailsBox.Cursor = System.Windows.Forms.Cursors.No;
+            this.ticketDetailsBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ticketDetailsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ticketDetailsBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ticketDetailsBox.Location = new System.Drawing.Point(208, 118);
@@ -148,7 +148,7 @@ namespace TicketAndVisitorMS
             // 
             // nameBox
             // 
-            this.nameBox.Cursor = System.Windows.Forms.Cursors.No;
+            this.nameBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.nameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.nameBox.Location = new System.Drawing.Point(164, 70);
