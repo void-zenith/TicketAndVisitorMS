@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace TicketAndVisitorMS
 {
-    public class TicketVisitorDetails
-
+    public class VisitorDetails
     {
-
         public string TicketNo { get; set; }
 
         public string Name { get; set; }
 
-        public string TicketDetails {get;set;}
+        public string TicketDetails { get; set; }
 
         public string BookingDate { get; set; }
-
     }
 }

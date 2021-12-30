@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,13 +53,16 @@
     <Compile Include="AdminPage.Designer.cs">
       <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee.cs" />
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="TicketVisitorDetails.cs" />
+    <Compile Include="MergeSort.cs" />
+    <Compile Include="TicketDetails.cs" />
+    <Compile Include="VisitorDetails.cs" />
     <Compile Include="EmployeePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +120,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eye_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\love_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout_rounded_left_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ticketimg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

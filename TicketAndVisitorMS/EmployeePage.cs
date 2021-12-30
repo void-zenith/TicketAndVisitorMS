@@ -18,35 +18,35 @@ namespace TicketAndVisitorMS
         private XmlSerializer visitorSerializer;
 
         //initializing list
-        private List<TicketVisitorDetails> visitorDetails;
+        private List<VisitorDetails> visitorDetails;
 
         public EmployeePage()
         {
             InitializeComponent();
-            visitorDetails = new List<TicketVisitorDetails>();
-            visitorSerializer = new XmlSerializer(typeof(List<TicketVisitorDetails>));
+            visitorDetails = new List<VisitorDetails>();
+            visitorSerializer = new XmlSerializer(typeof(List<VisitorDetails>));
         }
 
         private void clearTextBox()
         {
-            TicketNoBox.Text = "";
-            nameBox.Text = "";
-            bookingdateBox.Text = "";
-            ticketDetailsBox.Text = "";
+            TicketIDBox.Text = "";
+            ContactNoBox.Text = "";
+            NoOfIndividualBox.Text = "";
+            VisitorNameBox.Text = "";
         }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(TicketNoBox.Text) &&
-                !String.IsNullOrWhiteSpace(nameBox.Text) &&
-                !String.IsNullOrWhiteSpace(bookingdateBox.Text) &&
-                !String.IsNullOrWhiteSpace(ticketDetailsBox.Text))
+            if (!String.IsNullOrWhiteSpace(TicketIDBox.Text) &&
+                !String.IsNullOrWhiteSpace(ContactNoBox.Text) &&
+                !String.IsNullOrWhiteSpace(NoOfIndividualBox.Text) &&
+                !String.IsNullOrWhiteSpace(VisitorNameBox.Text))
             {
                 int n = dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells[0].Value = TicketNoBox.Text.Trim();
-                dataGridView1.Rows[n].Cells[1].Value = nameBox.Text.Trim();
-                dataGridView1.Rows[n].Cells[2].Value = bookingdateBox.Text.Trim();
-                dataGridView1.Rows[n].Cells[3].Value = ticketDetailsBox.Text.Trim();
+                dataGridView1.Rows[n].Cells[0].Value = TicketIDBox.Text.Trim();
+                dataGridView1.Rows[n].Cells[1].Value = ContactNoBox.Text.Trim();
+                dataGridView1.Rows[n].Cells[2].Value = NoOfIndividualBox.Text.Trim();
+                dataGridView1.Rows[n].Cells[3].Value = VisitorNameBox.Text.Trim();
                 clearTextBox();
             }
             else
@@ -61,15 +61,15 @@ namespace TicketAndVisitorMS
             {
                 if (isRowSelected)
                 {
-                    if (!String.IsNullOrWhiteSpace(TicketNoBox.Text) &&
-                      !String.IsNullOrWhiteSpace(nameBox.Text) &&
-                      !String.IsNullOrWhiteSpace(bookingdateBox.Text) &&
-                      !String.IsNullOrWhiteSpace(ticketDetailsBox.Text))
+                    if (!String.IsNullOrWhiteSpace(TicketIDBox.Text) &&
+                      !String.IsNullOrWhiteSpace(ContactNoBox.Text) &&
+                      !String.IsNullOrWhiteSpace(NoOfIndividualBox.Text) &&
+                      !String.IsNullOrWhiteSpace(VisitorNameBox.Text))
                     {
-                        dataGridView1.Rows[0].Cells[0].Value = TicketNoBox.Text.Trim();
-                        dataGridView1.Rows[0].Cells[1].Value = nameBox.Text.Trim();
-                        dataGridView1.Rows[0].Cells[2].Value = bookingdateBox.Text.Trim();
-                        dataGridView1.Rows[0].Cells[3].Value = ticketDetailsBox.Text.Trim();
+                        dataGridView1.Rows[0].Cells[0].Value = TicketIDBox.Text.Trim();
+                        dataGridView1.Rows[0].Cells[1].Value = ContactNoBox.Text.Trim();
+                        dataGridView1.Rows[0].Cells[2].Value = NoOfIndividualBox.Text.Trim();
+                        dataGridView1.Rows[0].Cells[3].Value = VisitorNameBox.Text.Trim();
                         clearTextBox();
                         isRowSelected = false;
                     }
@@ -123,11 +123,10 @@ namespace TicketAndVisitorMS
             try
             {
                 isRowSelected = true;
-                var selected = dataGridView1.SelectedRows[0];
-                TicketNoBox.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                nameBox.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                bookingdateBox.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                ticketDetailsBox.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                TicketIDBox.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+                ContactNoBox.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                NoOfIndividualBox.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                VisitorNameBox.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -207,11 +206,9 @@ namespace TicketAndVisitorMS
                     //Add the Data rows.
                     csv += cell.Value.ToString().Replace(",", ";") + ',';
                 }
-
                 //Add new line.
                 csv += "\r\n";
             }
-
             //Exporting to CSV.
             string folderPath = "C:/ASP .net/VisitorAndTicketMS/TicketAndVisitorMS/TicketAndVisitorMS/";
             File.WriteAllText(folderPath + "dailyreport.csv", csv);
@@ -229,6 +226,46 @@ namespace TicketAndVisitorMS
             {
                 MessageBox.Show("File Does not exist.");
             }
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void MakePanelVisible(bool showEnterVisitorDetailsPanel = false, bool showsearchVisitorDetailsPanel = false)
+        {
+            enterVisitorPanel.Visible = showEnterVisitorDetailsPanel;
+            searchPanel.Visible = showsearchVisitorDetailsPanel;
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+            MakePanelVisible(showEnterVisitorDetailsPanel: true);
+            enterVisitorPanel.BringToFront();
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+            MakePanelVisible(showsearchVisitorDetailsPanel: true);
+            searchPanel.BringToFront();
         }
     }
 }

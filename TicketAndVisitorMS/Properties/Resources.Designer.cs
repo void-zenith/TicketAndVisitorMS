@@ -73,6 +73,36 @@ namespace TicketAndVisitorMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap login_50px {
+            get {
+                object obj = ResourceManager.GetObject("login_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout_rounded_left_30px {
+            get {
+                object obj = ResourceManager.GetObject("logout_rounded_left_30px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap love_48px {
+            get {
+                object obj = ResourceManager.GetObject("love_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap multiply_60px {
             get {
                 object obj = ResourceManager.GetObject("multiply_60px", resourceCulture);
@@ -96,6 +126,16 @@ namespace TicketAndVisitorMS.Properties {
         internal static System.Drawing.Bitmap subtract_52px {
             get {
                 object obj = ResourceManager.GetObject("subtract_52px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ticketimg {
+            get {
+                object obj = ResourceManager.GetObject("ticketimg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
