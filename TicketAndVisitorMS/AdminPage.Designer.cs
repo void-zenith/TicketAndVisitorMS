@@ -29,15 +29,15 @@ namespace TicketAndVisitorMS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.adminDailyReportLabel = new System.Windows.Forms.Label();
@@ -98,6 +98,14 @@ namespace TicketAndVisitorMS
             this.importEmployeeBtn = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.employeeDatailsDatagrid = new System.Windows.Forms.DataGridView();
+            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MobileNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeePassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel18 = new System.Windows.Forms.Panel();
             this.deleteEmployeeBtn = new System.Windows.Forms.Button();
             this.clearEmployeeInputFields = new System.Windows.Forms.Button();
@@ -132,35 +140,27 @@ namespace TicketAndVisitorMS
             this.label18 = new System.Windows.Forms.Label();
             this.weeklyReportPanel = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
-            this.chart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.totalVisitorWeeklyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label27 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.totalEarningWeeklyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label26 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.loadFromXMLBtn = new System.Windows.Forms.Button();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.weeklyChartDataGrid = new System.Windows.Forms.DataGridView();
+            this.generateWeeklyReportBtn = new System.Windows.Forms.Button();
+            this.weeklyChartEndDate = new System.Windows.Forms.DateTimePicker();
             this.label25 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.weeklyChartStartDate = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dailyReportPanel = new System.Windows.Forms.Panel();
             this.panel23 = new System.Windows.Forms.Panel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dailyTotalVisitorChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label28 = new System.Windows.Forms.Label();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.button16 = new System.Windows.Forms.Button();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.dailyVisitorReportDataGrid = new System.Windows.Forms.DataGridView();
+            this.generateDailyReportBtn = new System.Windows.Forms.Button();
+            this.datePickerDailyReport = new System.Windows.Forms.DateTimePicker();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MobileNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeePassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -191,14 +191,14 @@ namespace TicketAndVisitorMS
             this.panel14.SuspendLayout();
             this.weeklyReportPanel.SuspendLayout();
             this.panel21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalVisitorWeeklyChart)).BeginInit();
             this.panel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalEarningWeeklyChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyChartDataGrid)).BeginInit();
             this.dailyReportPanel.SuspendLayout();
             this.panel23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dailyTotalVisitorChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dailyVisitorReportDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -628,10 +628,7 @@ namespace TicketAndVisitorMS
             this.categoryCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryCombobox.FormattingEnabled = true;
             this.categoryCombobox.Items.AddRange(new object[] {
-            "Group of 2",
-            "Group of 5 ",
-            "Group of 10",
-            "Group of 15",
+            "Group ",
             "Child (5-12)",
             "Adult"});
             this.categoryCombobox.Location = new System.Drawing.Point(360, 101);
@@ -857,6 +854,62 @@ namespace TicketAndVisitorMS
             this.employeeDatailsDatagrid.Size = new System.Drawing.Size(1194, 274);
             this.employeeDatailsDatagrid.TabIndex = 0;
             this.employeeDatailsDatagrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.employeeDatailsDatagrid_MouseDoubleClick);
+            // 
+            // EmployeeID
+            // 
+            this.EmployeeID.HeaderText = "Employee ID";
+            this.EmployeeID.MinimumWidth = 6;
+            this.EmployeeID.Name = "EmployeeID";
+            this.EmployeeID.Width = 125;
+            // 
+            // Username
+            // 
+            this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.Width = 125;
+            // 
+            // NameHeader
+            // 
+            this.NameHeader.HeaderText = "Name";
+            this.NameHeader.MinimumWidth = 6;
+            this.NameHeader.Name = "NameHeader";
+            this.NameHeader.Width = 125;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.Width = 125;
+            // 
+            // MobileNumber
+            // 
+            this.MobileNumber.HeaderText = "Mobile Number";
+            this.MobileNumber.MinimumWidth = 6;
+            this.MobileNumber.Name = "MobileNumber";
+            this.MobileNumber.Width = 125;
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 6;
+            this.Address.Name = "Address";
+            this.Address.Width = 125;
+            // 
+            // EmployeeRole
+            // 
+            this.EmployeeRole.HeaderText = "Employee Role";
+            this.EmployeeRole.MinimumWidth = 6;
+            this.EmployeeRole.Name = "EmployeeRole";
+            this.EmployeeRole.Width = 125;
+            // 
+            // EmployeePassword
+            // 
+            this.EmployeePassword.HeaderText = "Employee Password";
+            this.EmployeePassword.MinimumWidth = 6;
+            this.EmployeePassword.Name = "EmployeePassword";
+            this.EmployeePassword.Width = 180;
             // 
             // panel18
             // 
@@ -1222,11 +1275,11 @@ namespace TicketAndVisitorMS
             this.weeklyReportPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(233)))), ((int)(((byte)(225)))));
             this.weeklyReportPanel.Controls.Add(this.panel21);
             this.weeklyReportPanel.Controls.Add(this.panel20);
-            this.weeklyReportPanel.Controls.Add(this.dataGridView3);
-            this.weeklyReportPanel.Controls.Add(this.loadFromXMLBtn);
-            this.weeklyReportPanel.Controls.Add(this.dateTimePicker2);
+            this.weeklyReportPanel.Controls.Add(this.weeklyChartDataGrid);
+            this.weeklyReportPanel.Controls.Add(this.generateWeeklyReportBtn);
+            this.weeklyReportPanel.Controls.Add(this.weeklyChartEndDate);
             this.weeklyReportPanel.Controls.Add(this.label25);
-            this.weeklyReportPanel.Controls.Add(this.dateTimePicker1);
+            this.weeklyReportPanel.Controls.Add(this.weeklyChartStartDate);
             this.weeklyReportPanel.Controls.Add(this.label24);
             this.weeklyReportPanel.Controls.Add(this.label2);
             this.weeklyReportPanel.Location = new System.Drawing.Point(283, 52);
@@ -1236,28 +1289,28 @@ namespace TicketAndVisitorMS
             // 
             // panel21
             // 
-            this.panel21.Controls.Add(this.chart3);
+            this.panel21.Controls.Add(this.totalVisitorWeeklyChart);
             this.panel21.Controls.Add(this.label27);
             this.panel21.Location = new System.Drawing.Point(628, 281);
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(617, 368);
             this.panel21.TabIndex = 17;
             // 
-            // chart3
+            // totalVisitorWeeklyChart
             // 
-            chartArea16.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea16);
-            legend16.Name = "Legend1";
-            this.chart3.Legends.Add(legend16);
-            this.chart3.Location = new System.Drawing.Point(44, 61);
-            this.chart3.Name = "chart3";
-            series16.ChartArea = "ChartArea1";
-            series16.Legend = "Legend1";
-            series16.Name = "Series1";
-            this.chart3.Series.Add(series16);
-            this.chart3.Size = new System.Drawing.Size(543, 307);
-            this.chart3.TabIndex = 28;
-            this.chart3.Text = "chart3";
+            chartArea1.Name = "ChartArea1";
+            this.totalVisitorWeeklyChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.totalVisitorWeeklyChart.Legends.Add(legend1);
+            this.totalVisitorWeeklyChart.Location = new System.Drawing.Point(44, 61);
+            this.totalVisitorWeeklyChart.Name = "totalVisitorWeeklyChart";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "TotalVisitor";
+            this.totalVisitorWeeklyChart.Series.Add(series1);
+            this.totalVisitorWeeklyChart.Size = new System.Drawing.Size(543, 307);
+            this.totalVisitorWeeklyChart.TabIndex = 28;
+            this.totalVisitorWeeklyChart.Text = "chart3";
             // 
             // label27
             // 
@@ -1271,28 +1324,28 @@ namespace TicketAndVisitorMS
             // 
             // panel20
             // 
-            this.panel20.Controls.Add(this.chart2);
+            this.panel20.Controls.Add(this.totalEarningWeeklyChart);
             this.panel20.Controls.Add(this.label26);
             this.panel20.Location = new System.Drawing.Point(5, 281);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(617, 368);
             this.panel20.TabIndex = 16;
             // 
-            // chart2
+            // totalEarningWeeklyChart
             // 
-            chartArea17.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea17);
-            legend17.Name = "Legend1";
-            this.chart2.Legends.Add(legend17);
-            this.chart2.Location = new System.Drawing.Point(31, 58);
-            this.chart2.Name = "chart2";
-            series17.ChartArea = "ChartArea1";
-            series17.Legend = "Legend1";
-            series17.Name = "Series1";
-            this.chart2.Series.Add(series17);
-            this.chart2.Size = new System.Drawing.Size(543, 307);
-            this.chart2.TabIndex = 27;
-            this.chart2.Text = "chart2";
+            chartArea2.Name = "ChartArea1";
+            this.totalEarningWeeklyChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.totalEarningWeeklyChart.Legends.Add(legend2);
+            this.totalEarningWeeklyChart.Location = new System.Drawing.Point(31, 58);
+            this.totalEarningWeeklyChart.Name = "totalEarningWeeklyChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "TotalEarning";
+            this.totalEarningWeeklyChart.Series.Add(series2);
+            this.totalEarningWeeklyChart.Size = new System.Drawing.Size(543, 307);
+            this.totalEarningWeeklyChart.TabIndex = 27;
+            this.totalEarningWeeklyChart.Text = "chart2";
             // 
             // label26
             // 
@@ -1304,31 +1357,32 @@ namespace TicketAndVisitorMS
             this.label26.TabIndex = 14;
             this.label26.Text = "Total Earning";
             // 
-            // dataGridView3
+            // weeklyChartDataGrid
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(100, 92);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(1058, 176);
-            this.dataGridView3.TabIndex = 13;
+            this.weeklyChartDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.weeklyChartDataGrid.Location = new System.Drawing.Point(100, 92);
+            this.weeklyChartDataGrid.Name = "weeklyChartDataGrid";
+            this.weeklyChartDataGrid.RowHeadersWidth = 51;
+            this.weeklyChartDataGrid.RowTemplate.Height = 24;
+            this.weeklyChartDataGrid.Size = new System.Drawing.Size(1058, 176);
+            this.weeklyChartDataGrid.TabIndex = 13;
             // 
-            // loadFromXMLBtn
+            // generateWeeklyReportBtn
             // 
-            this.loadFromXMLBtn.Location = new System.Drawing.Point(1004, 36);
-            this.loadFromXMLBtn.Name = "loadFromXMLBtn";
-            this.loadFromXMLBtn.Size = new System.Drawing.Size(130, 49);
-            this.loadFromXMLBtn.TabIndex = 12;
-            this.loadFromXMLBtn.Text = "Generate report";
-            this.loadFromXMLBtn.UseVisualStyleBackColor = true;
+            this.generateWeeklyReportBtn.Location = new System.Drawing.Point(1004, 36);
+            this.generateWeeklyReportBtn.Name = "generateWeeklyReportBtn";
+            this.generateWeeklyReportBtn.Size = new System.Drawing.Size(130, 49);
+            this.generateWeeklyReportBtn.TabIndex = 12;
+            this.generateWeeklyReportBtn.Text = "Generate report";
+            this.generateWeeklyReportBtn.UseVisualStyleBackColor = true;
+            this.generateWeeklyReportBtn.Click += new System.EventHandler(this.generateWeeklyReportBtn_Click);
             // 
-            // dateTimePicker2
+            // weeklyChartEndDate
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(559, 49);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(255, 22);
-            this.dateTimePicker2.TabIndex = 4;
+            this.weeklyChartEndDate.Location = new System.Drawing.Point(559, 49);
+            this.weeklyChartEndDate.Name = "weeklyChartEndDate";
+            this.weeklyChartEndDate.Size = new System.Drawing.Size(255, 22);
+            this.weeklyChartEndDate.TabIndex = 4;
             // 
             // label25
             // 
@@ -1340,12 +1394,12 @@ namespace TicketAndVisitorMS
             this.label25.TabIndex = 3;
             this.label25.Text = "End Date:";
             // 
-            // dateTimePicker1
+            // weeklyChartStartDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(172, 51);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(255, 22);
-            this.dateTimePicker1.TabIndex = 2;
+            this.weeklyChartStartDate.Location = new System.Drawing.Point(172, 51);
+            this.weeklyChartStartDate.Name = "weeklyChartStartDate";
+            this.weeklyChartStartDate.Size = new System.Drawing.Size(255, 22);
+            this.weeklyChartStartDate.TabIndex = 2;
             // 
             // label24
             // 
@@ -1371,9 +1425,9 @@ namespace TicketAndVisitorMS
             // 
             this.dailyReportPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(233)))), ((int)(((byte)(225)))));
             this.dailyReportPanel.Controls.Add(this.panel23);
-            this.dailyReportPanel.Controls.Add(this.dataGridView4);
-            this.dailyReportPanel.Controls.Add(this.button16);
-            this.dailyReportPanel.Controls.Add(this.dateTimePicker4);
+            this.dailyReportPanel.Controls.Add(this.dailyVisitorReportDataGrid);
+            this.dailyReportPanel.Controls.Add(this.generateDailyReportBtn);
+            this.dailyReportPanel.Controls.Add(this.datePickerDailyReport);
             this.dailyReportPanel.Controls.Add(this.label30);
             this.dailyReportPanel.Controls.Add(this.label31);
             this.dailyReportPanel.Location = new System.Drawing.Point(282, 51);
@@ -1383,28 +1437,28 @@ namespace TicketAndVisitorMS
             // 
             // panel23
             // 
-            this.panel23.Controls.Add(this.chart1);
+            this.panel23.Controls.Add(this.dailyTotalVisitorChart);
             this.panel23.Controls.Add(this.label28);
             this.panel23.Location = new System.Drawing.Point(379, 271);
             this.panel23.Name = "panel23";
             this.panel23.Size = new System.Drawing.Size(651, 379);
             this.panel23.TabIndex = 25;
             // 
-            // chart1
+            // dailyTotalVisitorChart
             // 
-            chartArea18.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea18);
-            legend18.Name = "Legend1";
-            this.chart1.Legends.Add(legend18);
-            this.chart1.Location = new System.Drawing.Point(3, 54);
-            this.chart1.Name = "chart1";
-            series18.ChartArea = "ChartArea1";
-            series18.Legend = "Legend1";
-            series18.Name = "Series1";
-            this.chart1.Series.Add(series18);
-            this.chart1.Size = new System.Drawing.Size(637, 322);
-            this.chart1.TabIndex = 26;
-            this.chart1.Text = "chart1";
+            chartArea3.Name = "ChartArea1";
+            this.dailyTotalVisitorChart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.dailyTotalVisitorChart.Legends.Add(legend3);
+            this.dailyTotalVisitorChart.Location = new System.Drawing.Point(3, 54);
+            this.dailyTotalVisitorChart.Name = "dailyTotalVisitorChart";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "TotalVisitor";
+            this.dailyTotalVisitorChart.Series.Add(series3);
+            this.dailyTotalVisitorChart.Size = new System.Drawing.Size(637, 322);
+            this.dailyTotalVisitorChart.TabIndex = 26;
+            this.dailyTotalVisitorChart.Text = "chart1";
             // 
             // label28
             // 
@@ -1416,31 +1470,33 @@ namespace TicketAndVisitorMS
             this.label28.TabIndex = 14;
             this.label28.Text = "Total Visitor";
             // 
-            // dataGridView4
+            // dailyVisitorReportDataGrid
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(45, 81);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowHeadersWidth = 51;
-            this.dataGridView4.RowTemplate.Height = 24;
-            this.dataGridView4.Size = new System.Drawing.Size(1160, 188);
-            this.dataGridView4.TabIndex = 24;
+            this.dailyVisitorReportDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dailyVisitorReportDataGrid.Location = new System.Drawing.Point(45, 81);
+            this.dailyVisitorReportDataGrid.Name = "dailyVisitorReportDataGrid";
+            this.dailyVisitorReportDataGrid.RowHeadersWidth = 51;
+            this.dailyVisitorReportDataGrid.RowTemplate.Height = 24;
+            this.dailyVisitorReportDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dailyVisitorReportDataGrid.Size = new System.Drawing.Size(1160, 188);
+            this.dailyVisitorReportDataGrid.TabIndex = 24;
             // 
-            // button16
+            // generateDailyReportBtn
             // 
-            this.button16.Location = new System.Drawing.Point(1067, 30);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(130, 49);
-            this.button16.TabIndex = 23;
-            this.button16.Text = "Generate report";
-            this.button16.UseVisualStyleBackColor = true;
+            this.generateDailyReportBtn.Location = new System.Drawing.Point(1067, 30);
+            this.generateDailyReportBtn.Name = "generateDailyReportBtn";
+            this.generateDailyReportBtn.Size = new System.Drawing.Size(130, 49);
+            this.generateDailyReportBtn.TabIndex = 23;
+            this.generateDailyReportBtn.Text = "Generate report";
+            this.generateDailyReportBtn.UseVisualStyleBackColor = true;
+            this.generateDailyReportBtn.Click += new System.EventHandler(this.generateDailyReportBtn_Click);
             // 
-            // dateTimePicker4
+            // datePickerDailyReport
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(219, 46);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(255, 22);
-            this.dateTimePicker4.TabIndex = 20;
+            this.datePickerDailyReport.Location = new System.Drawing.Point(219, 46);
+            this.datePickerDailyReport.Name = "datePickerDailyReport";
+            this.datePickerDailyReport.Size = new System.Drawing.Size(255, 22);
+            this.datePickerDailyReport.TabIndex = 20;
             // 
             // label30
             // 
@@ -1462,71 +1518,15 @@ namespace TicketAndVisitorMS
             this.label31.TabIndex = 18;
             this.label31.Text = "Daily report";
             // 
-            // EmployeeID
-            // 
-            this.EmployeeID.HeaderText = "Employee ID";
-            this.EmployeeID.MinimumWidth = 6;
-            this.EmployeeID.Name = "EmployeeID";
-            this.EmployeeID.Width = 125;
-            // 
-            // Username
-            // 
-            this.Username.HeaderText = "Username";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            this.Username.Width = 125;
-            // 
-            // NameHeader
-            // 
-            this.NameHeader.HeaderText = "Name";
-            this.NameHeader.MinimumWidth = 6;
-            this.NameHeader.Name = "NameHeader";
-            this.NameHeader.Width = 125;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.Width = 125;
-            // 
-            // MobileNumber
-            // 
-            this.MobileNumber.HeaderText = "Mobile Number";
-            this.MobileNumber.MinimumWidth = 6;
-            this.MobileNumber.Name = "MobileNumber";
-            this.MobileNumber.Width = 125;
-            // 
-            // Address
-            // 
-            this.Address.HeaderText = "Address";
-            this.Address.MinimumWidth = 6;
-            this.Address.Name = "Address";
-            this.Address.Width = 125;
-            // 
-            // EmployeeRole
-            // 
-            this.EmployeeRole.HeaderText = "Employee Role";
-            this.EmployeeRole.MinimumWidth = 6;
-            this.EmployeeRole.Name = "EmployeeRole";
-            this.EmployeeRole.Width = 125;
-            // 
-            // EmployeePassword
-            // 
-            this.EmployeePassword.HeaderText = "Employee Password";
-            this.EmployeePassword.MinimumWidth = 6;
-            this.EmployeePassword.Name = "EmployeePassword";
-            this.EmployeePassword.Width = 180;
-            // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1537, 848);
-            this.Controls.Add(this.ticketDetailsPanel);
-            this.Controls.Add(this.manageEmployeePanel);
             this.Controls.Add(this.weeklyReportPanel);
             this.Controls.Add(this.dailyReportPanel);
+            this.Controls.Add(this.manageEmployeePanel);
+            this.Controls.Add(this.ticketDetailsPanel);
             this.Controls.Add(this.navbarPanel);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1586,17 +1586,17 @@ namespace TicketAndVisitorMS
             this.weeklyReportPanel.PerformLayout();
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalVisitorWeeklyChart)).EndInit();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.totalEarningWeeklyChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weeklyChartDataGrid)).EndInit();
             this.dailyReportPanel.ResumeLayout(false);
             this.dailyReportPanel.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dailyTotalVisitorChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dailyVisitorReportDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1692,26 +1692,26 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.Button ticketClearBtn;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button deleteEmployeeBtn;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker weeklyChartEndDate;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker weeklyChartStartDate;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button loadFromXMLBtn;
+        private System.Windows.Forms.Button generateWeeklyReportBtn;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView weeklyChartDataGrid;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.DataGridView dataGridView4;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DataGridView dailyVisitorReportDataGrid;
+        private System.Windows.Forms.Button generateDailyReportBtn;
+        private System.Windows.Forms.DateTimePicker datePickerDailyReport;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart totalVisitorWeeklyChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart totalEarningWeeklyChart;
+        private System.Windows.Forms.DataVisualization.Charting.Chart dailyTotalVisitorChart;
         private System.Windows.Forms.DataGridViewTextBoxColumn TicketDetailID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryHead;
         private System.Windows.Forms.DataGridViewTextBoxColumn NoOfIndividualHead;

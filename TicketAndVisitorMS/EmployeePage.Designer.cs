@@ -35,15 +35,15 @@ namespace TicketAndVisitorMS
             this.TicketInfoIdBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ticketInfoDataGrid = new System.Windows.Forms.DataGridView();
             this.TicketInfoID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NoOfIndividual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NoOfIndividual = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.importTicketDetailsEmpPage = new System.Windows.Forms.Button();
             this.TotalPricePanel = new System.Windows.Forms.Panel();
             this.TotalPriceBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -96,7 +96,6 @@ namespace TicketAndVisitorMS
             this.openCSVBtn = new System.Windows.Forms.Button();
             this.exportToCSVBtn = new System.Windows.Forms.Button();
             this.importVisitorDetailsBtn = new System.Windows.Forms.Button();
-            this.saveToXMLBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
@@ -115,7 +114,7 @@ namespace TicketAndVisitorMS
             this.CategoryPanel.SuspendLayout();
             this.TicketInfoPanel.SuspendLayout();
             this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketInfoDataGrid)).BeginInit();
             this.TotalPricePanel.SuspendLayout();
             this.DurationPanel.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -189,10 +188,10 @@ namespace TicketAndVisitorMS
             // 
             // TicketInfoPanel
             // 
-            this.TicketInfoPanel.BackColor = System.Drawing.Color.White;
+            this.TicketInfoPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.TicketInfoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TicketInfoPanel.Controls.Add(this.TicketInfoIdBox);
-            this.TicketInfoPanel.Location = new System.Drawing.Point(177, 291);
+            this.TicketInfoPanel.Location = new System.Drawing.Point(177, 287);
             this.TicketInfoPanel.Name = "TicketInfoPanel";
             this.TicketInfoPanel.Size = new System.Drawing.Size(219, 38);
             this.TicketInfoPanel.TabIndex = 36;
@@ -201,6 +200,7 @@ namespace TicketAndVisitorMS
             // 
             this.TicketInfoIdBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TicketInfoIdBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TicketInfoIdBox.Enabled = false;
             this.TicketInfoIdBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TicketInfoIdBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TicketInfoIdBox.Location = new System.Drawing.Point(11, 8);
@@ -221,36 +221,36 @@ namespace TicketAndVisitorMS
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.Transparent;
-            this.panel15.Controls.Add(this.dataGridView2);
+            this.panel15.Controls.Add(this.ticketInfoDataGrid);
             this.panel15.Controls.Add(this.comboBox1);
-            this.panel15.Controls.Add(this.button1);
+            this.panel15.Controls.Add(this.importTicketDetailsEmpPage);
             this.panel15.Location = new System.Drawing.Point(762, 49);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(611, 350);
             this.panel15.TabIndex = 34;
             // 
-            // dataGridView2
+            // ticketInfoDataGrid
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ticketInfoDataGrid.AllowUserToAddRows = false;
+            this.ticketInfoDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ticketInfoDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TicketInfoID,
-            this.Day,
-            this.TotalPrice,
-            this.NoOfIndividual,
             this.Category,
-            this.Duration});
-            this.dataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 57);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(471, 284);
-            this.dataGridView2.TabIndex = 36;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.NoOfIndividual,
+            this.Duration,
+            this.Day,
+            this.TotalPrice});
+            this.ticketInfoDataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.ticketInfoDataGrid.Location = new System.Drawing.Point(3, 57);
+            this.ticketInfoDataGrid.Name = "ticketInfoDataGrid";
+            this.ticketInfoDataGrid.RowHeadersVisible = false;
+            this.ticketInfoDataGrid.RowHeadersWidth = 51;
+            this.ticketInfoDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.ticketInfoDataGrid.RowTemplate.Height = 24;
+            this.ticketInfoDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ticketInfoDataGrid.Size = new System.Drawing.Size(471, 284);
+            this.ticketInfoDataGrid.TabIndex = 36;
+            this.ticketInfoDataGrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ticketInfoDataGrid_MouseDoubleClick);
             // 
             // TicketInfoID
             // 
@@ -258,6 +258,29 @@ namespace TicketAndVisitorMS
             this.TicketInfoID.MinimumWidth = 6;
             this.TicketInfoID.Name = "TicketInfoID";
             this.TicketInfoID.Width = 125;
+            // 
+            // Category
+            // 
+            this.Category.HeaderText = "Category";
+            this.Category.MinimumWidth = 6;
+            this.Category.Name = "Category";
+            this.Category.Width = 125;
+            // 
+            // NoOfIndividual
+            // 
+            this.NoOfIndividual.HeaderText = "No Of Individual";
+            this.NoOfIndividual.MinimumWidth = 6;
+            this.NoOfIndividual.Name = "NoOfIndividual";
+            this.NoOfIndividual.Width = 125;
+            // 
+            // Duration
+            // 
+            this.Duration.HeaderText = "Duration";
+            this.Duration.MinimumWidth = 6;
+            this.Duration.Name = "Duration";
+            this.Duration.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Duration.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Duration.Width = 125;
             // 
             // Day
             // 
@@ -273,29 +296,6 @@ namespace TicketAndVisitorMS
             this.TotalPrice.Name = "TotalPrice";
             this.TotalPrice.Width = 125;
             // 
-            // NoOfIndividual
-            // 
-            this.NoOfIndividual.HeaderText = "No Of Individual";
-            this.NoOfIndividual.MinimumWidth = 6;
-            this.NoOfIndividual.Name = "NoOfIndividual";
-            this.NoOfIndividual.Width = 125;
-            // 
-            // Category
-            // 
-            this.Category.HeaderText = "Category";
-            this.Category.MinimumWidth = 6;
-            this.Category.Name = "Category";
-            this.Category.Width = 125;
-            // 
-            // Duration
-            // 
-            this.Duration.HeaderText = "Duration";
-            this.Duration.MinimumWidth = 6;
-            this.Duration.Name = "Duration";
-            this.Duration.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Duration.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Duration.Width = 125;
-            // 
             // comboBox1
             // 
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -306,24 +306,25 @@ namespace TicketAndVisitorMS
             "Duration",
             "Group",
             "Weekday"});
-            this.comboBox1.Location = new System.Drawing.Point(347, 19);
+            this.comboBox1.Location = new System.Drawing.Point(224, 12);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(127, 28);
+            this.comboBox1.Size = new System.Drawing.Size(152, 28);
             this.comboBox1.TabIndex = 35;
             this.comboBox1.Text = "Sort By...";
             // 
-            // button1
+            // importTicketDetailsEmpPage
             // 
-            this.button1.Location = new System.Drawing.Point(26, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 43);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Import ticket Details";
-            this.button1.UseVisualStyleBackColor = true;
+            this.importTicketDetailsEmpPage.Location = new System.Drawing.Point(26, 5);
+            this.importTicketDetailsEmpPage.Name = "importTicketDetailsEmpPage";
+            this.importTicketDetailsEmpPage.Size = new System.Drawing.Size(160, 43);
+            this.importTicketDetailsEmpPage.TabIndex = 34;
+            this.importTicketDetailsEmpPage.Text = "Import ticket Details";
+            this.importTicketDetailsEmpPage.UseVisualStyleBackColor = true;
+            this.importTicketDetailsEmpPage.Click += new System.EventHandler(this.importTicketDetailsEmpPage_Click);
             // 
             // TotalPricePanel
             // 
-            this.TotalPricePanel.BackColor = System.Drawing.Color.White;
+            this.TotalPricePanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.TotalPricePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TotalPricePanel.Controls.Add(this.TotalPriceBox);
             this.TotalPricePanel.Location = new System.Drawing.Point(583, 243);
@@ -335,6 +336,7 @@ namespace TicketAndVisitorMS
             // 
             this.TotalPriceBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TotalPriceBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.TotalPriceBox.Enabled = false;
             this.TotalPriceBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalPriceBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TotalPriceBox.Location = new System.Drawing.Point(12, 8);
@@ -354,7 +356,7 @@ namespace TicketAndVisitorMS
             // 
             // DurationPanel
             // 
-            this.DurationPanel.BackColor = System.Drawing.Color.White;
+            this.DurationPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.DurationPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DurationPanel.Controls.Add(this.DurationBox);
             this.DurationPanel.Location = new System.Drawing.Point(583, 143);
@@ -366,6 +368,7 @@ namespace TicketAndVisitorMS
             // 
             this.DurationBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DurationBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.DurationBox.Enabled = false;
             this.DurationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DurationBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DurationBox.Location = new System.Drawing.Point(5, 8);
@@ -385,7 +388,7 @@ namespace TicketAndVisitorMS
             // 
             // panel11
             // 
-            this.panel11.BackColor = System.Drawing.Color.White;
+            this.panel11.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel11.Controls.Add(this.CategoryBox);
             this.panel11.Location = new System.Drawing.Point(176, 243);
@@ -397,6 +400,7 @@ namespace TicketAndVisitorMS
             // 
             this.CategoryBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CategoryBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.CategoryBox.Enabled = false;
             this.CategoryBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CategoryBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.CategoryBox.Location = new System.Drawing.Point(11, 8);
@@ -416,7 +420,7 @@ namespace TicketAndVisitorMS
             // 
             // DayPanel
             // 
-            this.DayPanel.BackColor = System.Drawing.Color.White;
+            this.DayPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.DayPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DayPanel.Controls.Add(this.DayBox);
             this.DayPanel.Location = new System.Drawing.Point(583, 193);
@@ -428,6 +432,7 @@ namespace TicketAndVisitorMS
             // 
             this.DayBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DayBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.DayBox.Enabled = false;
             this.DayBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DayBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DayBox.Location = new System.Drawing.Point(11, 8);
@@ -509,7 +514,7 @@ namespace TicketAndVisitorMS
             // 
             // NoOfIndividualPanel
             // 
-            this.NoOfIndividualPanel.BackColor = System.Drawing.Color.White;
+            this.NoOfIndividualPanel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.NoOfIndividualPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NoOfIndividualPanel.Controls.Add(this.NoOfIndividualBox);
             this.NoOfIndividualPanel.Location = new System.Drawing.Point(176, 193);
@@ -521,6 +526,7 @@ namespace TicketAndVisitorMS
             // 
             this.NoOfIndividualBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.NoOfIndividualBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.NoOfIndividualBox.Enabled = false;
             this.NoOfIndividualBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NoOfIndividualBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.NoOfIndividualBox.Location = new System.Drawing.Point(12, 9);
@@ -681,7 +687,6 @@ namespace TicketAndVisitorMS
             this.panel2.Controls.Add(this.openCSVBtn);
             this.panel2.Controls.Add(this.exportToCSVBtn);
             this.panel2.Controls.Add(this.importVisitorDetailsBtn);
-            this.panel2.Controls.Add(this.saveToXMLBtn);
             this.panel2.Location = new System.Drawing.Point(10, 411);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1376, 366);
@@ -689,7 +694,7 @@ namespace TicketAndVisitorMS
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(240, 12);
+            this.button2.Location = new System.Drawing.Point(257, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 49);
             this.button2.TabIndex = 15;
@@ -721,7 +726,7 @@ namespace TicketAndVisitorMS
             this.visitorDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.visitorDataGridView.Size = new System.Drawing.Size(1111, 280);
             this.visitorDataGridView.TabIndex = 14;
-            this.visitorDataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
+            this.visitorDataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.visitorDataGridView_MouseDoubleClick);
             // 
             // TicketNo
             // 
@@ -817,7 +822,7 @@ namespace TicketAndVisitorMS
             // 
             // openCSVBtn
             // 
-            this.openCSVBtn.Location = new System.Drawing.Point(836, 4);
+            this.openCSVBtn.Location = new System.Drawing.Point(913, 4);
             this.openCSVBtn.Name = "openCSVBtn";
             this.openCSVBtn.Size = new System.Drawing.Size(104, 49);
             this.openCSVBtn.TabIndex = 13;
@@ -827,11 +832,11 @@ namespace TicketAndVisitorMS
             // 
             // exportToCSVBtn
             // 
-            this.exportToCSVBtn.Location = new System.Drawing.Point(1080, 4);
+            this.exportToCSVBtn.Location = new System.Drawing.Point(1040, 4);
             this.exportToCSVBtn.Name = "exportToCSVBtn";
-            this.exportToCSVBtn.Size = new System.Drawing.Size(104, 49);
+            this.exportToCSVBtn.Size = new System.Drawing.Size(152, 49);
             this.exportToCSVBtn.TabIndex = 12;
-            this.exportToCSVBtn.Text = "Export to CSV";
+            this.exportToCSVBtn.Text = "Export Visitor Details";
             this.exportToCSVBtn.UseVisualStyleBackColor = true;
             this.exportToCSVBtn.Click += new System.EventHandler(this.exportToCSVBtn_Click);
             // 
@@ -839,21 +844,11 @@ namespace TicketAndVisitorMS
             // 
             this.importVisitorDetailsBtn.Location = new System.Drawing.Point(81, 12);
             this.importVisitorDetailsBtn.Name = "importVisitorDetailsBtn";
-            this.importVisitorDetailsBtn.Size = new System.Drawing.Size(130, 49);
+            this.importVisitorDetailsBtn.Size = new System.Drawing.Size(152, 49);
             this.importVisitorDetailsBtn.TabIndex = 11;
             this.importVisitorDetailsBtn.Text = "Import Visitor Details";
             this.importVisitorDetailsBtn.UseVisualStyleBackColor = true;
-            this.importVisitorDetailsBtn.Click += new System.EventHandler(this.loadFromXMLBtn_Click);
-            // 
-            // saveToXMLBtn
-            // 
-            this.saveToXMLBtn.Location = new System.Drawing.Point(961, 4);
-            this.saveToXMLBtn.Name = "saveToXMLBtn";
-            this.saveToXMLBtn.Size = new System.Drawing.Size(104, 49);
-            this.saveToXMLBtn.TabIndex = 10;
-            this.saveToXMLBtn.Text = "Save to XML";
-            this.saveToXMLBtn.UseVisualStyleBackColor = true;
-            this.saveToXMLBtn.Click += new System.EventHandler(this.saveToXMLBtn_Click);
+            this.importVisitorDetailsBtn.Click += new System.EventHandler(this.importVisitorDetailsBtn_Click);
             // 
             // panel3
             // 
@@ -1029,7 +1024,7 @@ namespace TicketAndVisitorMS
             this.TicketInfoPanel.ResumeLayout(false);
             this.TicketInfoPanel.PerformLayout();
             this.panel15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketInfoDataGrid)).EndInit();
             this.TotalPricePanel.ResumeLayout(false);
             this.TotalPricePanel.PerformLayout();
             this.DurationPanel.ResumeLayout(false);
@@ -1081,7 +1076,6 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.Button openCSVBtn;
         private System.Windows.Forms.Button exportToCSVBtn;
         private System.Windows.Forms.Button importVisitorDetailsBtn;
-        private System.Windows.Forms.Button saveToXMLBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel navbarPanel;
@@ -1121,17 +1115,11 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button importTicketDetailsEmpPage;
         private System.Windows.Forms.Panel TicketInfoPanel;
         private System.Windows.Forms.TextBox TicketInfoIdBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TicketInfoID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Day;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NoOfIndividual;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
+        private System.Windows.Forms.DataGridView ticketInfoDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn TicketNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckInTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckOutTime;
@@ -1152,6 +1140,12 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TicketInfoID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NoOfIndividual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Day;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
     }
 }
 

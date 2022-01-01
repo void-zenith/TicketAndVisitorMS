@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
@@ -15,12 +11,13 @@ namespace TicketAndVisitorMS
     public partial class AdminPage : Form
     {
         private readonly XmlSerializer employeeSerializer;
-        private readonly XmlSerializer ticketDetailsSerializer;
         private List<Employee> employeeList;
         private List<TicketDetails> ticketDetailsList;
         private List<VisitorDetails> visitorDetailsList;
+        private List<DailyReport> dailyReports;
         private readonly string folderPath;
         private readonly string ticketDetailsPathCSV;
+        private readonly string visitorDetailsPathCSV;
         private readonly string employeeDetailsPathXML;
         private bool isRowSelected = false;
 
@@ -35,6 +32,7 @@ namespace TicketAndVisitorMS
             folderPath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
             ticketDetailsPathCSV = folderPath + "\\TicketDetails.csv";
             employeeDetailsPathXML = folderPath + "\\EmployeeDetails.xml";
+            visitorDetailsPathCSV = folderPath + "\\VisitorDetails.csv";
         }
 
         private void MakeAdminPanelVisible(bool showDailyReportPanel = false, bool showWeeklyReportPanel = false, bool showManageemployeePanel = false, bool showTicketDetailsPanel = false)
@@ -522,6 +520,351 @@ namespace TicketAndVisitorMS
             {
                 MessageBox.Show("The table is empty.", "Invalid Delete");
             }
+        }
+
+        private void generateDailyReportBtn_Click(object sender, EventArgs e)
+        {
+            List<TicketDetails> allTicketDetails = new List<TicketDetails>();
+            List<VisitorDetails> allVisitors = new List<VisitorDetails>();
+            List<DailyReport> dailyReports = new List<DailyReport>();
+
+            try
+            {
+                if (File.Exists(ticketDetailsPathCSV))
+                {
+                    string[] linesTicket = File.ReadAllLines(ticketDetailsPathCSV);
+                    ticketDetailsList = new List<TicketDetails>();
+
+                    if (linesTicket.Length > 0)
+                    {
+                        ticketDetailsList = new List<TicketDetails>();
+
+                        for (int i = 1; i < linesTicket.Length; i++)
+                        {
+                            string[] lineTicket = linesTicket[i].Split(',');
+                            TicketDetails ticketDetails = new TicketDetails
+                            {
+                                ticketID = lineTicket[0],
+                                ticketCategory = lineTicket[1],
+                                ticketNoOfIndividuals = Convert.ToInt32(lineTicket[2]),
+                                ticketDuration = lineTicket[3],
+                                ticketDay = lineTicket[4],
+                                ticketPrice = Convert.ToDouble(lineTicket[5]),
+                            };
+                            ticketDetailsList.Add(ticketDetails);
+                        };
+                        allTicketDetails.AddRange(ticketDetailsList);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Specified File not found", "File not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (File.Exists(visitorDetailsPathCSV))
+                {
+                    visitorDetailsList = new List<VisitorDetails>();
+                    string[] linesVisitor = File.ReadAllLines(visitorDetailsPathCSV);
+
+                    if (linesVisitor.Length > 0)
+                    {
+                        for (int i = 1; i < linesVisitor.Length; i++)
+                        {
+                            string[] lineVisitor = linesVisitor[i].Split(',');
+                            VisitorDetails visitorDetails = new VisitorDetails
+                            {
+                                visitorTicketNo = lineVisitor[0],
+                                visitorCheckInTime = lineVisitor[1],
+                                visitorCheckOutTime = lineVisitor[2],
+                                visitorDuration = lineVisitor[3],
+                                visitorDay = lineVisitor[4],
+                                visitorTotalPrice = lineVisitor[5],
+                                visitorName = lineVisitor[6],
+                                visitorDate = Convert.ToDateTime(lineVisitor[7]),
+                                visitorContactNo = lineVisitor[8],
+                                visitorTicketInfoID = lineVisitor[9],
+                                visitorCategory = lineVisitor[10],
+                                visitorNoOfIndividual = lineVisitor[11],
+                            };
+                            visitorDetailsList.Add(visitorDetails);
+                        };
+                        allVisitors.AddRange(visitorDetailsList);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Specified File not found", "File not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                int[] groups = new int[3];
+
+                for (int i = 0; i < visitorDetailsList.Count; i++)
+                {
+                    bool match = false;
+                    for (int j = 0; j < ticketDetailsList.Count; j++)
+                    {
+                        if (visitorDetailsList[i].visitorTicketInfoID == ticketDetailsList[j].ticketID &&
+                            visitorDetailsList[i].visitorDate.Date == datePickerDailyReport.Value.Date)
+                        {
+                            if (string.Compare(ticketDetailsList[j].ticketCategory, "Group") == 0)
+                            {
+                                groups[0] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                            }
+                            else if (string.Compare(ticketDetailsList[j].ticketCategory, "Adult") == 0)
+                            {
+                                groups[1] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                            }
+                            else if (string.Compare(ticketDetailsList[j].ticketCategory, "Child (5-12)") == 0)
+                            {
+                                groups[2] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                            }
+                            if (match) { break; }
+                        }
+                    }
+                }
+                DailyReport groupDailyReport = new DailyReport
+                {
+                    Date = DateTime.Now.Date,
+                    Category = "Group",
+                    TotalVisitor = groups[0]
+                };
+                DailyReport adultDailyReport = new DailyReport
+                {
+                    Date = DateTime.Now.Date,
+                    Category = "Adult",
+                    TotalVisitor = groups[1]
+                };
+                DailyReport childDailyReport = new DailyReport
+                {
+                    Date = DateTime.Now.Date,
+                    Category = "Child (5-12)",
+                    TotalVisitor = groups[2]
+                };
+
+                dailyReports.Add(groupDailyReport);
+                dailyReports.Add(adultDailyReport);
+                dailyReports.Add(childDailyReport);
+                dailyVisitorReportDataGrid.DataSource = dailyReports;
+                dailyVisitorReportDataGrid.Refresh();
+                GenerateDailyReportChart(dailyReports);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        private void GenerateDailyReportChart(List<DailyReport> dailyReports)
+        {
+            dailyTotalVisitorChart.Series["TotalVisitor"].Points.Clear();
+            for (int i = 0; i < dailyReports.Count; i++)
+            {
+                Console.WriteLine(dailyReports[i].Category);
+
+                dailyTotalVisitorChart.Series["TotalVisitor"].Points.AddXY(dailyReports[i].Category, dailyReports[i].TotalVisitor);
+            }
+        }
+
+        private int GetDayIndex(string day)
+        {
+            switch (day)
+            {
+                case "Sun":
+                    return 0;
+
+                case "Mon":
+                    return 1;
+
+                case "Tue":
+                    return 2;
+
+                case "Wed":
+                    return 3;
+
+                case "Thu":
+                    return 4;
+
+                case "Fri":
+                    return 5;
+
+                case "Sat":
+                    return 6;
+
+                default:
+                    return 0;
+            }
+        }
+
+        private void GenerateWeeklyReportChart(List<WeeklyReport> weeklyReports)
+        {
+            totalEarningWeeklyChart.Series["TotalEarning"].Points.Clear();
+            totalVisitorWeeklyChart.Series["TotalVisitor"].Points.Clear();
+            for (int i = 0; i < weeklyReports.Count; i++)
+            {
+                totalEarningWeeklyChart.Series["TotalEarning"].Points.AddXY(weeklyReports[i].Day, weeklyReports[i].TotalEarning);
+                totalVisitorWeeklyChart.Series["TotalVisitor"].Points.AddXY(weeklyReports[i].Day, weeklyReports[i].TotalVisitor);
+            }
+        }
+
+        private void generateWeeklyReportBtn_Click(object sender, EventArgs e)
+        {
+            List<TicketDetails> allTicketDetails = new List<TicketDetails>();
+            List<VisitorDetails> allVisitors = new List<VisitorDetails>();
+            List<WeeklyReport> weeklyReports = new List<WeeklyReport>();
+
+            try
+            {
+                if (File.Exists(ticketDetailsPathCSV))
+                {
+                    string[] linesTicket = File.ReadAllLines(ticketDetailsPathCSV);
+                    ticketDetailsList = new List<TicketDetails>();
+
+                    if (linesTicket.Length > 0)
+                    {
+                        ticketDetailsList = new List<TicketDetails>();
+
+                        for (int i = 1; i < linesTicket.Length; i++)
+                        {
+                            string[] lineTicket = linesTicket[i].Split(',');
+                            TicketDetails ticketDetails = new TicketDetails
+                            {
+                                ticketID = lineTicket[0],
+                                ticketCategory = lineTicket[1],
+                                ticketNoOfIndividuals = Convert.ToInt32(lineTicket[2]),
+                                ticketDuration = lineTicket[3],
+                                ticketDay = lineTicket[4],
+                                ticketPrice = Convert.ToDouble(lineTicket[5]),
+                            };
+                            ticketDetailsList.Add(ticketDetails);
+                        };
+                        allTicketDetails.AddRange(ticketDetailsList);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Specified File not found", "File not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (File.Exists(visitorDetailsPathCSV))
+                {
+                    visitorDetailsList = new List<VisitorDetails>();
+                    string[] linesVisitor = File.ReadAllLines(visitorDetailsPathCSV);
+
+                    if (linesVisitor.Length > 0)
+                    {
+                        for (int i = 1; i < linesVisitor.Length; i++)
+                        {
+                            string[] lineVisitor = linesVisitor[i].Split(',');
+                            VisitorDetails visitorDetails = new VisitorDetails
+                            {
+                                visitorTicketNo = lineVisitor[0],
+                                visitorCheckInTime = lineVisitor[1],
+                                visitorCheckOutTime = lineVisitor[2],
+                                visitorDuration = lineVisitor[3],
+                                visitorDay = lineVisitor[4],
+                                visitorTotalPrice = lineVisitor[5],
+                                visitorName = lineVisitor[6],
+                                visitorDate = Convert.ToDateTime(lineVisitor[7]),
+                                visitorContactNo = lineVisitor[8],
+                                visitorTicketInfoID = lineVisitor[9],
+                                visitorCategory = lineVisitor[10],
+                                visitorNoOfIndividual = lineVisitor[11],
+                            };
+                            visitorDetailsList.Add(visitorDetails);
+                        };
+                        allVisitors.AddRange(visitorDetailsList);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Specified File not found", "File not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error :" + ex.Message);
+            }
+            int[] earning = new int[7];
+            int[] visit = new int[7];
+
+            for (int i = 0; i < visitorDetailsList.Count; i++)
+            {
+                bool match = false;
+                for (int j = 0; j < ticketDetailsList.Count; j++)
+                {
+                    if (visitorDetailsList[i].visitorTicketInfoID == ticketDetailsList[j].ticketID)
+                    {
+                        switch (visitorDetailsList[i].visitorDate.ToString("ddd"))
+                        {
+                            case "Sun":
+                                earning[0] += Convert.ToInt32(ticketDetailsList[j].ticketPrice);
+                                visit[0] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                                break;
+
+                            case "Mon":
+                                earning[1] += Convert.ToInt32(ticketDetailsList[j].ticketPrice);
+                                visit[1] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                                break;
+
+                            case "Tue":
+                                earning[2] += Convert.ToInt32(ticketDetailsList[j].ticketPrice);
+                                visit[2] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                                break;
+
+                            case "Wed":
+                                earning[3] += Convert.ToInt32(ticketDetailsList[j].ticketPrice);
+                                visit[3] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                                break;
+
+                            case "Thu":
+                                earning[4] += Convert.ToInt32(ticketDetailsList[j].ticketPrice);
+                                visit[4] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                                break;
+
+                            case "Fri":
+                                earning[5] += Convert.ToInt32(ticketDetailsList[j].ticketPrice);
+                                visit[5] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                                break;
+
+                            case "Sat":
+                                earning[6] += Convert.ToInt32(ticketDetailsList[j].ticketPrice);
+                                visit[6] += Convert.ToInt32(ticketDetailsList[j].ticketNoOfIndividuals);
+                                match = true;
+                                break;
+                        }
+                        if (match) { break; }
+                    }
+                }
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                WeeklyReport weeklyReport = new WeeklyReport
+                {
+                    Date = weeklyChartStartDate.Value.Date.AddDays(i),
+                    Day = weeklyChartStartDate.Value.Date.AddDays(i).ToString("ddd"),
+                    TotalEarning = earning[GetDayIndex(weeklyChartStartDate.Value.Date.AddDays(i).ToString("ddd"))],
+                    TotalVisitor = visit[GetDayIndex(weeklyChartStartDate.Value.Date.AddDays(i).ToString("ddd"))],
+                };
+                weeklyReports.Add(weeklyReport);
+            }
+            foreach (WeeklyReport weeklyReport in weeklyReports)
+            {
+                Console.WriteLine(weeklyReport.TotalVisitor);
+            }
+            weeklyChartDataGrid.DataSource = weeklyReports;
+            weeklyChartDataGrid.Refresh();
+
+            GenerateWeeklyReportChart(weeklyReports);
         }
     }
 }

@@ -28,5 +28,7 @@ namespace TicketAndVisitorMS
         public DateTime visitorDate { get; set; }
 
         public string visitorTotalPrice { get; set; }
+
+        public string visitorNoOfIndividual { get; set; }
     }
 }

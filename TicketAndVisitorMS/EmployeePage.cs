@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -20,11 +21,11 @@ namespace TicketAndVisitorMS
         //initializing list
         private List<VisitorDetails> visitorDetailsList;
 
+        private List<TicketDetails> ticketDetailsList;
+
         private readonly string folderPath;
         private readonly string ticketDetailsPathCSV;
         private readonly string visitorDetailsPathCSV;
-
-        private List<TicketDetails> ticketDetailsList;
 
         public EmployeePage()
         {
@@ -49,6 +50,7 @@ namespace TicketAndVisitorMS
             ContactNoBox.Text = "";
             NoOfIndividualBox.Text = "";
             VisitorNameBox.Text = "";
+            DayBox.Text = "";
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -64,15 +66,20 @@ namespace TicketAndVisitorMS
                 visitorCheckOutTime = CheckOutTimePicker.Value.ToString("hh:mm tt"),
                 visitorContactNo = ContactNoBox.Text.Trim(),
                 visitorDate = visitorDatePicker.Value.Date,
+                visitorDay = DayBox.Text.Trim(),
+                visitorNoOfIndividual = NoOfIndividualBox.Text.Trim(),
                 visitorDuration = DurationBox.Text.Trim(),
                 visitorTicketInfoID = TicketInfoIdBox.Text.Trim(),
                 visitorTotalPrice = TotalPriceBox.Text.Trim(),
             };
+
             visitorDetailsList.Add(visitorDetails);
-            visitorDataGridView.Rows.Add(visitorDetails.visitorTicketNo, visitorDetails.visitorCheckInTime, visitorDetails.visitorCheckOutTime, visitorDetails.visitorDuration,
+            visitorDataGridView.Rows.Add(visitorDetails.visitorTicketNo, visitorDetails.visitorCheckInTime,
+                visitorDetails.visitorCheckOutTime, visitorDetails.visitorDuration,
                 visitorDetails.visitorDay, visitorDetails.visitorTotalPrice,
                 visitorDetails.visitorName, visitorDetails.visitorDate,
-                visitorDetails.visitorContactNo);
+                visitorDetails.visitorContactNo, visitorDetails.visitorTicketInfoID,
+                visitorDetails.visitorCategory, visitorDetails.visitorNoOfIndividual);
             visitorDataGridView.Refresh();
             visitorDataGridView.ClearSelection();
         }
@@ -140,7 +147,9 @@ namespace TicketAndVisitorMS
             }
         }
 
-        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        //garna baki cha
+
+        private void visitorDataGridView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             try
             {
@@ -156,85 +165,120 @@ namespace TicketAndVisitorMS
             }
         }
 
-        private void saveToXMLBtn_Click(object sender, EventArgs e)
+        private void importVisitorDetailsBtn_Click(object sender, EventArgs e)
         {
-            if (!(visitorDataGridView.RowCount == 0))
+            OpenFileDialog fileDialog = new OpenFileDialog
             {
-                FileStream fileStream = new FileStream(visitorDetailsURL, FileMode.OpenOrCreate, FileAccess.Write);
-                fileStream.Close();
-
-                DataSet dataSet = new DataSet();
-                DataTable dataTable = new DataTable();
-
-                dataTable.TableName = "DailyReport";
-
-                foreach (DataGridViewColumn col in visitorDataGridView.Columns)
+                Filter = "CSV (*.csv)|*.csv",
+                FileName = "VisitorDetails.csv"
+            };
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(fileDialog.FileName))
                 {
-                    dataTable.Columns.Add(col.Name);
-                }
-                dataSet.Tables.Add(dataTable);
-                foreach (DataGridViewRow row in visitorDataGridView.Rows)
-                {
-                    DataRow dataRow = dataSet.Tables["DailyReport"].NewRow();
-                    foreach (DataGridViewColumn col in visitorDataGridView.Columns)
+                    visitorDetailsList = new List<VisitorDetails>();
+                    DataTable dt = new DataTable();
+                    string[] lines = File.ReadAllLines(fileDialog.FileName);
+
+                    if (lines.Length > 0)
                     {
-                        dataRow[col.Name] = row.Cells[col.Index].Value;
+                        for (int i = 1; i < lines.Length; i++)
+                        {
+                            string[] line = lines[i].Split(',');
+                            VisitorDetails visitorDetails = new VisitorDetails
+                            {
+                                visitorTicketNo = line[0],
+                                visitorCheckInTime = line[1],
+                                visitorCheckOutTime = line[2],
+                                visitorDuration = line[3],
+                                visitorDay = line[4],
+                                visitorTotalPrice = line[5],
+                                visitorName = line[6],
+                                visitorDate = Convert.ToDateTime(line[7]),
+                                visitorContactNo = line[8],
+                                visitorTicketInfoID = line[9],
+                                visitorCategory = line[10],
+                                visitorNoOfIndividual = line[11],
+                            };
+                            visitorDetailsList.Add(visitorDetails);
+                            visitorDataGridView.Rows.Add(visitorDetails.visitorTicketNo, visitorDetails.visitorCheckInTime,
+               visitorDetails.visitorCheckOutTime, visitorDetails.visitorDuration,
+               visitorDetails.visitorDay, visitorDetails.visitorTotalPrice,
+               visitorDetails.visitorName, visitorDetails.visitorDate,
+               visitorDetails.visitorContactNo, visitorDetails.visitorTicketInfoID,
+               visitorDetails.visitorCategory, visitorDetails.visitorNoOfIndividual);
+                        };
+                        MessageBox.Show("The data has been imported successfully", "Successful Import");
                     }
-                    dataSet.Tables["DailyReport"].Rows.Add(dataRow);
                 }
-                dataSet.WriteXml(@visitorDetailsURL);
-                MessageBox.Show("The File has been added Successfully");
+                else
+                {
+                    MessageBox.Show("Specified File not found", "File not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("No data to export", "Export Failed");
+                MessageBox.Show("There was some error while saving the file.", "Invalid Export");
             }
-        }
-
-        private void loadFromXMLBtn_Click(object sender, EventArgs e)
-        {
-            DataSet dataSet = new DataSet();
-            dataSet.ReadXml(@visitorDetailsURL);
-            foreach (DataRow item in dataSet.Tables["DailyReport"].Rows)
-            {
-                int n = visitorDataGridView.Rows.Add();
-                Console.WriteLine(item[0]);
-                for (int i = 0; i < visitorDataGridView.ColumnCount; i++)
-                {
-                    visitorDataGridView.Rows[n].Cells[i].Value = item[i];
-                }
-            }
-            MessageBox.Show("The data has been imported successfully", "Successful Import");
         }
 
         private void exportToCSVBtn_Click(object sender, EventArgs e)
         {
-            string csv = string.Empty;
-
-            //Add the Header row for CSV file.
-            foreach (DataGridViewColumn column in visitorDataGridView.Columns)
+            if (visitorDataGridView.RowCount != 0)
             {
-                csv += column.HeaderText + ',';
-            }
-
-            //Add new line.
-            csv += "\r\n";
-
-            //Adding the Rows
-            foreach (DataGridViewRow row in visitorDataGridView.Rows)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
+                SaveFileDialog fileDialog = new SaveFileDialog
                 {
-                    //Add the Data rows.
-                    csv += cell.Value.ToString().Replace(",", ";") + ',';
+                    Filter = "CSV (*.csv)|*.csv",
+                    FileName = "VisitorDetails.csv",
+                };
+                bool error = false;
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(fileDialog.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(fileDialog.FileName);
+                        }
+                        catch (IOException)
+                        {
+                            error = true;
+                            MessageBox.Show("There was some error while saving the file.", "Invalid Export");
+                        }
+                    }
+
+                    if (!error)
+                    {
+                        string[] lines = new string[visitorDataGridView.RowCount + 1];
+
+                        for (int i = 0; i < visitorDataGridView.RowCount + 1; i++)
+                        {
+                            for (int j = 0; j < visitorDataGridView.ColumnCount; j++)
+                            {
+                                if (i == 0)
+                                {
+                                    lines[i] = lines[i] + visitorDataGridView.Columns[j].HeaderText + ",";
+                                }
+                                else
+                                {
+                                    lines[i] = lines[i] + visitorDataGridView.Rows[i - 1].Cells[j].Value.ToString() + ",";
+                                }
+                            }
+                        }
+
+                        File.WriteAllLines(visitorDetailsPathCSV, lines, Encoding.UTF8);
+                        MessageBox.Show("The data has been exported successfully", "Successful Export");
+                    }
                 }
-                //Add new line.
-                csv += "\r\n";
+                else
+                {
+                    MessageBox.Show("There was some error while saving the file.", "Invalid Export");
+                }
             }
-            //Exporting to CSV.
-            string folderPath = "C:/ASP .net/VisitorAndTicketMS/TicketAndVisitorMS/TicketAndVisitorMS/";
-            File.WriteAllText(folderPath + "dailyreport.csv", csv);
-            MessageBox.Show("The data has been exported successfully", "Successful Export");
+            else
+            {
+                MessageBox.Show("There are no datas to export.", "Invalid Export");
+            }
         }
 
         private void openCSVBtn_Click(object sender, EventArgs e)
@@ -264,10 +308,6 @@ namespace TicketAndVisitorMS
         {
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
         private void MakePanelVisible(bool showEnterVisitorDetailsPanel = false, bool showsearchVisitorDetailsPanel = false)
         {
             enterVisitorPanel.Visible = showEnterVisitorDetailsPanel;
@@ -288,6 +328,74 @@ namespace TicketAndVisitorMS
         {
             MakePanelVisible(showsearchVisitorDetailsPanel: true);
             searchPanel.BringToFront();
+        }
+
+        private void ticketInfoDataGrid_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                TicketInfoIdBox.Text = ticketInfoDataGrid.SelectedRows[0].Cells[0].Value.ToString();
+                CategoryBox.Text = ticketInfoDataGrid.SelectedRows[0].Cells[1].Value.ToString();
+                NoOfIndividualBox.Text = ticketInfoDataGrid.SelectedRows[0].Cells[2].Value.ToString();
+                DurationBox.Text = ticketInfoDataGrid.SelectedRows[0].Cells[3].Value.ToString();
+                DayBox.Text = ticketInfoDataGrid.SelectedRows[0].Cells[4].Value.ToString();
+                TotalPriceBox.Text = ticketInfoDataGrid.SelectedRows[0].Cells[5].Value.ToString();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No Rows to select", "Invalid Selection");
+            }
+        }
+
+        private void importTicketDetailsEmpPage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                Filter = "CSV (*.csv)|*.csv",
+                FileName = "TicketDetails.csv"
+            };
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(fileDialog.FileName))
+                {
+                    ticketDetailsList = new List<TicketDetails>();
+                    DataTable dt = new DataTable();
+                    string[] lines = File.ReadAllLines(fileDialog.FileName);
+
+                    if (lines.Length > 0)
+                    {
+                        for (int i = 1; i < lines.Length; i++)
+                        {
+                            string[] line = lines[i].Split(',');
+                            TicketDetails ticketDetails = new TicketDetails
+                            {
+                                ticketID = line[0],
+                                ticketCategory = line[1],
+                                ticketNoOfIndividuals = Convert.ToInt32(line[2]),
+                                ticketDuration = line[3],
+                                ticketDay = line[4],
+                                ticketPrice = Convert.ToDouble(line[5]),
+                            };
+                            ticketDetailsList.Add(ticketDetails);
+                            ticketInfoDataGrid.Rows.Add(ticketDetails.ticketID,
+                               ticketDetails.ticketCategory,
+                               ticketDetails.ticketNoOfIndividuals,
+                               ticketDetails.ticketDuration,
+                               ticketDetails.ticketDay,
+                               ticketDetails.ticketPrice);
+                        };
+                        MessageBox.Show("The data has been imported successfully", "Successful Import");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Specified File not found", "File not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("There was some error while saving the file.", "Invalid Export");
+            }
         }
     }
 }
