@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicketAndVisitorMS
 {
-    internal class Employee
+    public class Employee
     {
         public string employeeID { get; set; }
 
@@ -17,5 +17,11 @@ namespace TicketAndVisitorMS
         public string employeeName { get; set; }
 
         public string employeeRole { get; set; }
+
+        public string employeeEmail { get; set; }
+
+        public string employeeMobileNumber { get; set; }
+
+        public string employeeAddress { get; set; }
     }
 }

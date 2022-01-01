@@ -21,6 +21,7 @@ namespace TicketAndVisitorMS
         private List<VisitorDetails> visitorDetailsList;
         private readonly string folderPath;
         private readonly string ticketDetailsPathCSV;
+        private readonly string employeeDetailsPathXML;
         private bool isRowSelected = false;
 
         public AdminPage()
@@ -28,9 +29,12 @@ namespace TicketAndVisitorMS
             InitializeComponent();
             ticketDetailsList = new List<TicketDetails>();
             employeeList = new List<Employee>();
+            employeeSerializer = new XmlSerializer(typeof(List<Employee>));
+
             visitorDetailsList = new List<VisitorDetails>();
             folderPath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
             ticketDetailsPathCSV = folderPath + "\\TicketDetails.csv";
+            employeeDetailsPathXML = folderPath + "\\EmployeeDetails.xml";
         }
 
         private void MakeAdminPanelVisible(bool showDailyReportPanel = false, bool showWeeklyReportPanel = false, bool showManageemployeePanel = false, bool showTicketDetailsPanel = false)
@@ -43,12 +47,14 @@ namespace TicketAndVisitorMS
 
         private void adminTicketDetailsLabel_Click(object sender, EventArgs e)
         {
+            isRowSelected = false;
             MakeAdminPanelVisible(showTicketDetailsPanel: true);
             ticketDetailsPanel.BringToFront();
         }
 
         private void adminManageEmployeeLabel_Click(object sender, EventArgs e)
         {
+            isRowSelected = false;
             MakeAdminPanelVisible(showManageemployeePanel: true);
             manageEmployeePanel.BringToFront();
         }
@@ -233,7 +239,7 @@ namespace TicketAndVisitorMS
             OpenFileDialog fileDialog = new OpenFileDialog
             {
                 Filter = "CSV (*.csv)|*.csv",
-                FileName = "ticketInfos.csv"
+                FileName = "TicketDetails.csv"
             };
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -265,12 +271,256 @@ namespace TicketAndVisitorMS
                                ticketDetails.ticketDay,
                                ticketDetails.ticketPrice);
                         };
+                        MessageBox.Show("The data has been imported successfully", "Successful Import");
                     }
                 }
                 else
                 {
                     MessageBox.Show("Specified File not found", "File not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+                MessageBox.Show("There was some error while saving the file.", "Invalid Export");
+            }
+        }
+
+        private void ticketDeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (ticketDetailsDataGrid.RowCount > 0)
+            {
+                if (ticketDetailsDataGrid.SelectedRows.Count > 0)
+                {
+                    var messageResult = MessageBox.Show("Are you sure you want to delete?", "Confirm Delete!!", MessageBoxButtons.YesNo);
+
+                    if (messageResult == DialogResult.Yes)
+                    {
+                        ticketDetailsDataGrid.Rows.RemoveAt(ticketDetailsDataGrid.SelectedRows[0].Index);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No Row Selected", "Invalid Delete");
+                }
+            }
+            else
+            {
+                MessageBox.Show("The table is empty.", "Invalid Delete");
+            }
+        }
+
+        //all about add employee from here
+
+        private void clearEmpInputFields()
+        {
+            employeeIdTextBox.Text = "";
+            employeeNameTextBox.Text = "";
+            employeeUserNameTextBox.Text = "";
+            employeePasswordTextBox.Text = "";
+            employeeRoleCombobox.Text = "Select Role";
+            employeeAddressTextBox.Text = "";
+            employeeEmailTextBox.Text = "";
+            employeeMobileNoTextBox.Text = "";
+        }
+
+        private void addEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            employeeList = new List<Employee>();
+
+            Employee employee = new Employee
+            {
+                employeeID = $"E{employeeIdTextBox.Text.Trim()}",
+                employeeName = employeeNameTextBox.Text.Trim(),
+                employeeUserName = employeeUserNameTextBox.Text.Trim(),
+                employeePassword = employeePasswordTextBox.Text.Trim(),
+                employeeRole = employeeRoleCombobox.SelectedItem.ToString(),
+                employeeAddress = employeeAddressTextBox.Text.Trim(),
+                employeeEmail = employeeEmailTextBox.Text.Trim(),
+                employeeMobileNumber = employeeMobileNoTextBox.Text.Trim(),
+            };
+            employeeList.Add(employee);
+            employeeDatailsDatagrid.Rows.Add(employee.employeeID, employee.employeeUserName, employee.employeeName, employee.employeeEmail, employee.employeeMobileNumber, employee.employeeAddress, employee.employeeRole, employee.employeePassword);
+
+            employeeDatailsDatagrid.Refresh();
+            employeeDatailsDatagrid.ClearSelection();
+            clearEmpInputFields();
+        }
+
+        private void clearEmployeeInputFields_Click(object sender, EventArgs e)
+        {
+            clearEmpInputFields();
+        }
+
+        private void exportEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog
+            {
+                Filter = "XML-File | *.xml",
+                FileName = "EmployeeDetails.xml",
+            };
+            bool error = false;
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(fileDialog.FileName))
+                {
+                    try
+                    {
+                        File.Delete(fileDialog.FileName);
+                    }
+                    catch (IOException)
+                    {
+                        error = true;
+                        MessageBox.Show("There was some error while saving the file.", "Invalid Export");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("There was some error while saving the file.", "Invalid Export");
+            }
+
+            if (!error)
+            {
+                employeeList = new List<Employee>();
+                for (int i = 0; i < employeeDatailsDatagrid.Rows.Count; i++)
+                {
+                    Employee employee = new Employee
+                    {
+                        employeeID = employeeDatailsDatagrid.Rows[i].Cells[0].Value.ToString(),
+                        employeeUserName = employeeDatailsDatagrid.Rows[i].Cells[1].Value.ToString(),
+                        employeeName = employeeDatailsDatagrid.Rows[i].Cells[2].Value.ToString(),
+                        employeeEmail = employeeDatailsDatagrid.Rows[i].Cells[3].Value.ToString(),
+                        employeeMobileNumber = employeeDatailsDatagrid.Rows[i].Cells[4].Value.ToString(),
+                        employeeAddress = employeeDatailsDatagrid.Rows[i].Cells[5].Value.ToString(),
+                        employeeRole = employeeDatailsDatagrid.Rows[i].Cells[6].Value.ToString(),
+                        employeePassword = employeeDatailsDatagrid.Rows[i].Cells[7].Value.ToString(),
+                    };
+                    employeeList.Add(employee);
+                }
+                FileStream employeeFile = new FileStream(@employeeDetailsPathXML, FileMode.Create, FileAccess.ReadWrite);
+                employeeSerializer.Serialize(employeeFile, employeeList);
+                MessageBox.Show("The data has been exported successfully", "Successful Export");
+                employeeFile.Close();
+            }
+        }
+
+        private void importEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                Filter = "XML-File | *.xml",
+                FileName = "EmployeeDetails.xml",
+            };
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (File.Exists(employeeDetailsPathXML))
+                {
+                    FileStream employeeFile = new FileStream(@employeeDetailsPathXML, FileMode.Open, FileAccess.Read);
+                    employeeList = (List<Employee>)employeeSerializer.Deserialize(employeeFile);
+                    employeeFile.Close();
+                    foreach (var list in employeeList)
+                    {
+                        employeeDatailsDatagrid.Rows.Add(list.employeeID,
+                          list.employeeUserName, list.employeeName,
+                          list.employeeEmail, list.employeeMobileNumber,
+                          list.employeeAddress, list.employeeRole, list.employeePassword
+                          );
+                    }
+                    MessageBox.Show("The data has been imported successfully", "Successful Import");
+                }
+                else
+                {
+                    MessageBox.Show("Specified File not found", "File not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("There was some error while saving the file.", "Invalid Export");
+            }
+        }
+
+        private void employeeDatailsDatagrid_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                isRowSelected = true;
+                employeeIdTextBox.Text = employeeDatailsDatagrid.SelectedRows[0].Cells[0].Value.ToString();
+                employeeUserNameTextBox.Text = employeeDatailsDatagrid.SelectedRows[0].Cells[1].Value.ToString();
+                employeeNameTextBox.Text = employeeDatailsDatagrid.SelectedRows[0].Cells[2].Value.ToString();
+                employeeEmailTextBox.Text = employeeDatailsDatagrid.SelectedRows[0].Cells[3].Value.ToString();
+                employeeMobileNoTextBox.Text = employeeDatailsDatagrid.SelectedRows[0].Cells[4].Value.ToString();
+                employeeAddressTextBox.Text = employeeDatailsDatagrid.SelectedRows[0].Cells[5].Value.ToString();
+                employeeRoleCombobox.SelectedItem = employeeDatailsDatagrid.SelectedRows[0].Cells[6].Value.ToString();
+                employeePasswordTextBox.Text = employeeDatailsDatagrid.SelectedRows[0].Cells[7].Value.ToString();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("No Rows to select", "Invalid Selection");
+            }
+        }
+
+        private void editEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            if (employeeDatailsDatagrid.SelectedRows.Count > 0)
+            {
+                if (isRowSelected)
+                {
+                    if (!String.IsNullOrWhiteSpace(employeeIdTextBox.Text) &&
+                    !String.IsNullOrWhiteSpace(employeeUserNameTextBox.Text) &&
+                    !String.IsNullOrWhiteSpace(employeeNameTextBox.Text) &&
+                    !String.IsNullOrWhiteSpace(employeeEmailTextBox.Text) &&
+                    !String.IsNullOrWhiteSpace(employeeMobileNoTextBox.Text) &&
+                    !String.IsNullOrWhiteSpace(employeeAddressTextBox.Text) &&
+                    !String.IsNullOrWhiteSpace(employeePasswordTextBox.Text))
+                    {
+                        employeeDatailsDatagrid.SelectedRows[0].Cells[0].Value = employeeIdTextBox.Text.Trim();
+                        employeeDatailsDatagrid.SelectedRows[0].Cells[1].Value = employeeUserNameTextBox.Text.Trim();
+                        employeeDatailsDatagrid.SelectedRows[0].Cells[2].Value = employeeNameTextBox.Text.Trim();
+                        employeeDatailsDatagrid.SelectedRows[0].Cells[3].Value = employeeEmailTextBox.Text.Trim();
+                        employeeDatailsDatagrid.SelectedRows[0].Cells[4].Value = employeeMobileNoTextBox.Text.Trim();
+                        employeeDatailsDatagrid.SelectedRows[0].Cells[5].Value = employeeAddressTextBox.Text.Trim();
+                        employeeDatailsDatagrid.SelectedRows[0].Cells[6].Value = employeeRoleCombobox.SelectedItem.ToString();
+                        employeeDatailsDatagrid.SelectedRows[0].Cells[7].Value = employeePasswordTextBox.Text.Trim();
+                        clearEmpInputFields();
+                        isRowSelected = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Text Fields are empty", "Invalid input");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No Row Selected", "Invalid Selection");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Row Selected", "Invalid edit");
+            }
+        }
+
+        private void deleteEmployeeBtn_Click(object sender, EventArgs e)
+        {
+            if (employeeDatailsDatagrid.RowCount > 0)
+            {
+                if (employeeDatailsDatagrid.SelectedRows.Count > 0)
+                {
+                    var messageResult = MessageBox.Show("Are you sure you want to delete?", "Confirm Delete!!", MessageBoxButtons.YesNo);
+
+                    if (messageResult == DialogResult.Yes)
+                    {
+                        employeeDatailsDatagrid.Rows.RemoveAt(employeeDatailsDatagrid.SelectedRows[0].Index);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No Row Selected", "Invalid Delete");
+                }
+            }
+            else
+            {
+                MessageBox.Show("The table is empty.", "Invalid Delete");
             }
         }
     }

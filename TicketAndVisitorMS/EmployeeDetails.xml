@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfEmployee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Employee>
+    <employeeID>Esdf</employeeID>
+    <employeeUserName>sdf</employeeUserName>
+    <employeePassword>fdfdfdf</employeePassword>
+    <employeeName />
+    <employeeRole>Admin</employeeRole>
+    <employeeEmail />
+    <employeeMobileNumber />
+    <employeeAddress />
+  </Employee>
+  <Employee>
+    <employeeID>E</employeeID>
+    <employeeUserName />
+    <employeePassword>dfdfdfdf</employeePassword>
+    <employeeName />
+    <employeeRole>Staff</employeeRole>
+    <employeeEmail>dfd</employeeEmail>
+    <employeeMobileNumber />
+    <employeeAddress>dfdf</employeeAddress>
+  </Employee>
+</ArrayOfEmployee>

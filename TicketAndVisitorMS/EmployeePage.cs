@@ -18,17 +18,33 @@ namespace TicketAndVisitorMS
         private XmlSerializer visitorSerializer;
 
         //initializing list
-        private List<VisitorDetails> visitorDetails;
+        private List<VisitorDetails> visitorDetailsList;
+
+        private readonly string folderPath;
+        private readonly string ticketDetailsPathCSV;
+        private readonly string visitorDetailsPathCSV;
+
+        private List<TicketDetails> ticketDetailsList;
 
         public EmployeePage()
         {
             InitializeComponent();
-            visitorDetails = new List<VisitorDetails>();
+            visitorDetailsList = new List<VisitorDetails>();
+            folderPath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            ticketDetailsPathCSV = folderPath + "\\TicketDetails.csv";
+            visitorDetailsPathCSV = folderPath + "\\VisitorDetails.csv";
             visitorSerializer = new XmlSerializer(typeof(List<VisitorDetails>));
         }
 
         private void clearTextBox()
         {
+            VisitorNameBox.Text = "";
+            ContactNoBox.Text = "";
+            CategoryBox.Text = "";
+            DurationBox.Text = "";
+            TicketInfoIdBox.Text = "";
+            TotalPriceBox.Text = "";
+            visitorDatePicker.Value = DateTime.Today.Date;
             TicketIDBox.Text = "";
             ContactNoBox.Text = "";
             NoOfIndividualBox.Text = "";
@@ -37,27 +53,33 @@ namespace TicketAndVisitorMS
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrWhiteSpace(TicketIDBox.Text) &&
-                !String.IsNullOrWhiteSpace(ContactNoBox.Text) &&
-                !String.IsNullOrWhiteSpace(NoOfIndividualBox.Text) &&
-                !String.IsNullOrWhiteSpace(VisitorNameBox.Text))
+            visitorDetailsList = new List<VisitorDetails>();
+
+            VisitorDetails visitorDetails = new VisitorDetails
             {
-                int n = dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells[0].Value = TicketIDBox.Text.Trim();
-                dataGridView1.Rows[n].Cells[1].Value = ContactNoBox.Text.Trim();
-                dataGridView1.Rows[n].Cells[2].Value = NoOfIndividualBox.Text.Trim();
-                dataGridView1.Rows[n].Cells[3].Value = VisitorNameBox.Text.Trim();
-                clearTextBox();
-            }
-            else
-            {
-                MessageBox.Show("Text Fields are empty", "Invalid input");
-            }
+                visitorTicketNo = $"V + {Convert.ToString(DateTime.Now.ToString("yyMMddHHmmssff"))}",
+                visitorName = VisitorNameBox.Text.Trim(),
+                visitorCategory = CategoryBox.Text.Trim(),
+                visitorCheckInTime = CheckInTimePicker.Value.ToString("hh:mm tt"),
+                visitorCheckOutTime = CheckOutTimePicker.Value.ToString("hh:mm tt"),
+                visitorContactNo = ContactNoBox.Text.Trim(),
+                visitorDate = visitorDatePicker.Value.Date,
+                visitorDuration = DurationBox.Text.Trim(),
+                visitorTicketInfoID = TicketInfoIdBox.Text.Trim(),
+                visitorTotalPrice = TotalPriceBox.Text.Trim(),
+            };
+            visitorDetailsList.Add(visitorDetails);
+            visitorDataGridView.Rows.Add(visitorDetails.visitorTicketNo, visitorDetails.visitorCheckInTime, visitorDetails.visitorCheckOutTime, visitorDetails.visitorDuration,
+                visitorDetails.visitorDay, visitorDetails.visitorTotalPrice,
+                visitorDetails.visitorName, visitorDetails.visitorDate,
+                visitorDetails.visitorContactNo);
+            visitorDataGridView.Refresh();
+            visitorDataGridView.ClearSelection();
         }
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (visitorDataGridView.SelectedRows.Count > 0)
             {
                 if (isRowSelected)
                 {
@@ -66,10 +88,10 @@ namespace TicketAndVisitorMS
                       !String.IsNullOrWhiteSpace(NoOfIndividualBox.Text) &&
                       !String.IsNullOrWhiteSpace(VisitorNameBox.Text))
                     {
-                        dataGridView1.Rows[0].Cells[0].Value = TicketIDBox.Text.Trim();
-                        dataGridView1.Rows[0].Cells[1].Value = ContactNoBox.Text.Trim();
-                        dataGridView1.Rows[0].Cells[2].Value = NoOfIndividualBox.Text.Trim();
-                        dataGridView1.Rows[0].Cells[3].Value = VisitorNameBox.Text.Trim();
+                        visitorDataGridView.Rows[0].Cells[0].Value = TicketIDBox.Text.Trim();
+                        visitorDataGridView.Rows[0].Cells[1].Value = ContactNoBox.Text.Trim();
+                        visitorDataGridView.Rows[0].Cells[2].Value = NoOfIndividualBox.Text.Trim();
+                        visitorDataGridView.Rows[0].Cells[3].Value = VisitorNameBox.Text.Trim();
                         clearTextBox();
                         isRowSelected = false;
                     }
@@ -96,15 +118,15 @@ namespace TicketAndVisitorMS
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.RowCount > 0)
+            if (visitorDataGridView.RowCount > 0)
             {
-                if (dataGridView1.SelectedRows.Count > 0)
+                if (visitorDataGridView.SelectedRows.Count > 0)
                 {
                     var messageResult = MessageBox.Show("Are you sure you want to delete?", "Confirm Delete!!", MessageBoxButtons.YesNo);
 
                     if (messageResult == DialogResult.Yes)
                     {
-                        dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                        visitorDataGridView.Rows.RemoveAt(visitorDataGridView.SelectedRows[0].Index);
                     }
                 }
                 else
@@ -123,10 +145,10 @@ namespace TicketAndVisitorMS
             try
             {
                 isRowSelected = true;
-                TicketIDBox.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-                ContactNoBox.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-                NoOfIndividualBox.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-                VisitorNameBox.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                TicketIDBox.Text = visitorDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+                ContactNoBox.Text = visitorDataGridView.SelectedRows[0].Cells[1].Value.ToString();
+                NoOfIndividualBox.Text = visitorDataGridView.SelectedRows[0].Cells[2].Value.ToString();
+                VisitorNameBox.Text = visitorDataGridView.SelectedRows[0].Cells[3].Value.ToString();
             }
             catch (ArgumentOutOfRangeException)
             {
@@ -136,7 +158,7 @@ namespace TicketAndVisitorMS
 
         private void saveToXMLBtn_Click(object sender, EventArgs e)
         {
-            if (!(dataGridView1.RowCount == 0))
+            if (!(visitorDataGridView.RowCount == 0))
             {
                 FileStream fileStream = new FileStream(visitorDetailsURL, FileMode.OpenOrCreate, FileAccess.Write);
                 fileStream.Close();
@@ -146,15 +168,15 @@ namespace TicketAndVisitorMS
 
                 dataTable.TableName = "DailyReport";
 
-                foreach (DataGridViewColumn col in dataGridView1.Columns)
+                foreach (DataGridViewColumn col in visitorDataGridView.Columns)
                 {
                     dataTable.Columns.Add(col.Name);
                 }
                 dataSet.Tables.Add(dataTable);
-                foreach (DataGridViewRow row in dataGridView1.Rows)
+                foreach (DataGridViewRow row in visitorDataGridView.Rows)
                 {
                     DataRow dataRow = dataSet.Tables["DailyReport"].NewRow();
-                    foreach (DataGridViewColumn col in dataGridView1.Columns)
+                    foreach (DataGridViewColumn col in visitorDataGridView.Columns)
                     {
                         dataRow[col.Name] = row.Cells[col.Index].Value;
                     }
@@ -175,11 +197,11 @@ namespace TicketAndVisitorMS
             dataSet.ReadXml(@visitorDetailsURL);
             foreach (DataRow item in dataSet.Tables["DailyReport"].Rows)
             {
-                int n = dataGridView1.Rows.Add();
+                int n = visitorDataGridView.Rows.Add();
                 Console.WriteLine(item[0]);
-                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                for (int i = 0; i < visitorDataGridView.ColumnCount; i++)
                 {
-                    dataGridView1.Rows[n].Cells[i].Value = item[i];
+                    visitorDataGridView.Rows[n].Cells[i].Value = item[i];
                 }
             }
             MessageBox.Show("The data has been imported successfully", "Successful Import");
@@ -190,7 +212,7 @@ namespace TicketAndVisitorMS
             string csv = string.Empty;
 
             //Add the Header row for CSV file.
-            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            foreach (DataGridViewColumn column in visitorDataGridView.Columns)
             {
                 csv += column.HeaderText + ',';
             }
@@ -199,7 +221,7 @@ namespace TicketAndVisitorMS
             csv += "\r\n";
 
             //Adding the Rows
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in visitorDataGridView.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {

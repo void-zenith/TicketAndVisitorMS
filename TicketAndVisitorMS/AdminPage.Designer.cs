@@ -29,15 +29,15 @@ namespace TicketAndVisitorMS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea17 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series17 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea18 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series18 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.adminDailyReportLabel = new System.Windows.Forms.Label();
@@ -94,48 +94,41 @@ namespace TicketAndVisitorMS
             this.button12 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.exportEmployeeBtn = new System.Windows.Forms.Button();
+            this.importEmployeeBtn = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.employeeDatailsDatagrid = new System.Windows.Forms.DataGridView();
-            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MobileNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel18 = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.deleteEmployeeBtn = new System.Windows.Forms.Button();
+            this.clearEmployeeInputFields = new System.Windows.Forms.Button();
+            this.editEmployeeBtn = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
-            this.addBtn = new System.Windows.Forms.Button();
+            this.addEmployeeBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.employeeRoleCombobox = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.employeeIdTextBox = new System.Windows.Forms.TextBox();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.employeeAddressTextBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.employeeUserNameTextBox = new System.Windows.Forms.TextBox();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.employeeConfirmPasswordTextBox = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.employeePasswordTextBox = new System.Windows.Forms.TextBox();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.employeeMobileNoTextBox = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.employeeNameTextBox = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.employeeEmailTextBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.weeklyReportPanel = new System.Windows.Forms.Panel();
             this.panel21 = new System.Windows.Forms.Panel();
@@ -160,6 +153,14 @@ namespace TicketAndVisitorMS
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+            this.EmployeeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameHeader = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MobileNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeeRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmployeePassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -484,6 +485,7 @@ namespace TicketAndVisitorMS
             this.ticketDeleteBtn.TabIndex = 27;
             this.ticketDeleteBtn.Text = "Delete";
             this.ticketDeleteBtn.UseVisualStyleBackColor = true;
+            this.ticketDeleteBtn.Click += new System.EventHandler(this.ticketDeleteBtn_Click);
             // 
             // ticketEditBtn
             // 
@@ -767,13 +769,13 @@ namespace TicketAndVisitorMS
             this.panel19.Controls.Add(this.button12);
             this.panel19.Controls.Add(this.button9);
             this.panel19.Controls.Add(this.comboBox6);
-            this.panel19.Controls.Add(this.button10);
-            this.panel19.Controls.Add(this.button11);
+            this.panel19.Controls.Add(this.exportEmployeeBtn);
+            this.panel19.Controls.Add(this.importEmployeeBtn);
             this.panel19.Controls.Add(this.label23);
             this.panel19.Controls.Add(this.employeeDatailsDatagrid);
             this.panel19.Location = new System.Drawing.Point(11, 316);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(1319, 431);
+            this.panel19.Size = new System.Drawing.Size(1319, 367);
             this.panel19.TabIndex = 33;
             // 
             // button12
@@ -803,23 +805,25 @@ namespace TicketAndVisitorMS
             this.comboBox6.Size = new System.Drawing.Size(181, 33);
             this.comboBox6.TabIndex = 33;
             // 
-            // button10
+            // exportEmployeeBtn
             // 
-            this.button10.Location = new System.Drawing.Point(1030, 24);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(179, 46);
-            this.button10.TabIndex = 34;
-            this.button10.Text = "Export Employee Details";
-            this.button10.UseVisualStyleBackColor = true;
+            this.exportEmployeeBtn.Location = new System.Drawing.Point(1030, 24);
+            this.exportEmployeeBtn.Name = "exportEmployeeBtn";
+            this.exportEmployeeBtn.Size = new System.Drawing.Size(179, 46);
+            this.exportEmployeeBtn.TabIndex = 34;
+            this.exportEmployeeBtn.Text = "Export Employee Details";
+            this.exportEmployeeBtn.UseVisualStyleBackColor = true;
+            this.exportEmployeeBtn.Click += new System.EventHandler(this.exportEmployeeBtn_Click);
             // 
-            // button11
+            // importEmployeeBtn
             // 
-            this.button11.Location = new System.Drawing.Point(15, 25);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(174, 46);
-            this.button11.TabIndex = 31;
-            this.button11.Text = "Import employee Details";
-            this.button11.UseVisualStyleBackColor = true;
+            this.importEmployeeBtn.Location = new System.Drawing.Point(15, 25);
+            this.importEmployeeBtn.Name = "importEmployeeBtn";
+            this.importEmployeeBtn.Size = new System.Drawing.Size(174, 46);
+            this.importEmployeeBtn.TabIndex = 31;
+            this.importEmployeeBtn.Text = "Import employee Details";
+            this.importEmployeeBtn.UseVisualStyleBackColor = true;
+            this.importEmployeeBtn.Click += new System.EventHandler(this.importEmployeeBtn_Click);
             // 
             // label23
             // 
@@ -833,7 +837,8 @@ namespace TicketAndVisitorMS
             // 
             // employeeDatailsDatagrid
             // 
-            this.employeeDatailsDatagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.employeeDatailsDatagrid.AllowUserToAddRows = false;
+            this.employeeDatailsDatagrid.ColumnHeadersHeight = 45;
             this.employeeDatailsDatagrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EmployeeID,
             this.Username,
@@ -841,72 +846,27 @@ namespace TicketAndVisitorMS
             this.Email,
             this.MobileNumber,
             this.Address,
-            this.EmployeeRole});
+            this.EmployeeRole,
+            this.EmployeePassword});
             this.employeeDatailsDatagrid.Location = new System.Drawing.Point(15, 83);
             this.employeeDatailsDatagrid.Name = "employeeDatailsDatagrid";
+            this.employeeDatailsDatagrid.RowHeadersVisible = false;
             this.employeeDatailsDatagrid.RowHeadersWidth = 51;
             this.employeeDatailsDatagrid.RowTemplate.Height = 24;
-            this.employeeDatailsDatagrid.Size = new System.Drawing.Size(1194, 262);
+            this.employeeDatailsDatagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.employeeDatailsDatagrid.Size = new System.Drawing.Size(1194, 274);
             this.employeeDatailsDatagrid.TabIndex = 0;
-            // 
-            // EmployeeID
-            // 
-            this.EmployeeID.HeaderText = "Employee ID";
-            this.EmployeeID.MinimumWidth = 6;
-            this.EmployeeID.Name = "EmployeeID";
-            this.EmployeeID.Width = 125;
-            // 
-            // Username
-            // 
-            this.Username.HeaderText = "Username";
-            this.Username.MinimumWidth = 6;
-            this.Username.Name = "Username";
-            this.Username.Width = 125;
-            // 
-            // NameHeader
-            // 
-            this.NameHeader.HeaderText = "Name";
-            this.NameHeader.MinimumWidth = 6;
-            this.NameHeader.Name = "NameHeader";
-            this.NameHeader.Width = 125;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.Width = 125;
-            // 
-            // MobileNumber
-            // 
-            this.MobileNumber.HeaderText = "Mobile Number";
-            this.MobileNumber.MinimumWidth = 6;
-            this.MobileNumber.Name = "MobileNumber";
-            this.MobileNumber.Width = 125;
-            // 
-            // Address
-            // 
-            this.Address.HeaderText = "Address";
-            this.Address.MinimumWidth = 6;
-            this.Address.Name = "Address";
-            this.Address.Width = 125;
-            // 
-            // EmployeeRole
-            // 
-            this.EmployeeRole.HeaderText = "Employee Role";
-            this.EmployeeRole.MinimumWidth = 6;
-            this.EmployeeRole.Name = "EmployeeRole";
-            this.EmployeeRole.Width = 125;
+            this.employeeDatailsDatagrid.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.employeeDatailsDatagrid_MouseDoubleClick);
             // 
             // panel18
             // 
-            this.panel18.Controls.Add(this.button13);
-            this.panel18.Controls.Add(this.button8);
-            this.panel18.Controls.Add(this.button7);
+            this.panel18.Controls.Add(this.deleteEmployeeBtn);
+            this.panel18.Controls.Add(this.clearEmployeeInputFields);
+            this.panel18.Controls.Add(this.editEmployeeBtn);
             this.panel18.Controls.Add(this.label22);
-            this.panel18.Controls.Add(this.addBtn);
+            this.panel18.Controls.Add(this.addEmployeeBtn);
             this.panel18.Controls.Add(this.label4);
-            this.panel18.Controls.Add(this.comboBox5);
+            this.panel18.Controls.Add(this.employeeRoleCombobox);
             this.panel18.Controls.Add(this.label13);
             this.panel18.Controls.Add(this.panel10);
             this.panel18.Controls.Add(this.panel17);
@@ -928,32 +888,35 @@ namespace TicketAndVisitorMS
             this.panel18.Size = new System.Drawing.Size(1229, 303);
             this.panel18.TabIndex = 32;
             // 
-            // button13
+            // deleteEmployeeBtn
             // 
-            this.button13.Location = new System.Drawing.Point(869, 241);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(126, 49);
-            this.button13.TabIndex = 36;
-            this.button13.Text = "Delete";
-            this.button13.UseVisualStyleBackColor = true;
+            this.deleteEmployeeBtn.Location = new System.Drawing.Point(869, 241);
+            this.deleteEmployeeBtn.Name = "deleteEmployeeBtn";
+            this.deleteEmployeeBtn.Size = new System.Drawing.Size(126, 49);
+            this.deleteEmployeeBtn.TabIndex = 36;
+            this.deleteEmployeeBtn.Text = "Delete";
+            this.deleteEmployeeBtn.UseVisualStyleBackColor = true;
+            this.deleteEmployeeBtn.Click += new System.EventHandler(this.deleteEmployeeBtn_Click);
             // 
-            // button8
+            // clearEmployeeInputFields
             // 
-            this.button8.Location = new System.Drawing.Point(719, 241);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(104, 49);
-            this.button8.TabIndex = 33;
-            this.button8.Text = "Clear";
-            this.button8.UseVisualStyleBackColor = true;
+            this.clearEmployeeInputFields.Location = new System.Drawing.Point(719, 241);
+            this.clearEmployeeInputFields.Name = "clearEmployeeInputFields";
+            this.clearEmployeeInputFields.Size = new System.Drawing.Size(104, 49);
+            this.clearEmployeeInputFields.TabIndex = 33;
+            this.clearEmployeeInputFields.Text = "Clear";
+            this.clearEmployeeInputFields.UseVisualStyleBackColor = true;
+            this.clearEmployeeInputFields.Click += new System.EventHandler(this.clearEmployeeInputFields_Click);
             // 
-            // button7
+            // editEmployeeBtn
             // 
-            this.button7.Location = new System.Drawing.Point(560, 241);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(104, 49);
-            this.button7.TabIndex = 32;
-            this.button7.Text = "Edit";
-            this.button7.UseVisualStyleBackColor = true;
+            this.editEmployeeBtn.Location = new System.Drawing.Point(560, 241);
+            this.editEmployeeBtn.Name = "editEmployeeBtn";
+            this.editEmployeeBtn.Size = new System.Drawing.Size(104, 49);
+            this.editEmployeeBtn.TabIndex = 32;
+            this.editEmployeeBtn.Text = "Edit";
+            this.editEmployeeBtn.UseVisualStyleBackColor = true;
+            this.editEmployeeBtn.Click += new System.EventHandler(this.editEmployeeBtn_Click);
             // 
             // label22
             // 
@@ -965,14 +928,15 @@ namespace TicketAndVisitorMS
             this.label22.TabIndex = 29;
             this.label22.Text = "Role:";
             // 
-            // addBtn
+            // addEmployeeBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(409, 241);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(104, 49);
-            this.addBtn.TabIndex = 31;
-            this.addBtn.Text = "Add";
-            this.addBtn.UseVisualStyleBackColor = true;
+            this.addEmployeeBtn.Location = new System.Drawing.Point(409, 241);
+            this.addEmployeeBtn.Name = "addEmployeeBtn";
+            this.addEmployeeBtn.Size = new System.Drawing.Size(104, 49);
+            this.addEmployeeBtn.TabIndex = 31;
+            this.addEmployeeBtn.Text = "Add";
+            this.addEmployeeBtn.UseVisualStyleBackColor = true;
+            this.addEmployeeBtn.Click += new System.EventHandler(this.addEmployeeBtn_Click);
             // 
             // label4
             // 
@@ -984,14 +948,18 @@ namespace TicketAndVisitorMS
             this.label4.TabIndex = 0;
             this.label4.Text = "Enter Employee Details";
             // 
-            // comboBox5
+            // employeeRoleCombobox
             // 
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(597, 52);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(158, 28);
-            this.comboBox5.TabIndex = 30;
+            this.employeeRoleCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeRoleCombobox.FormattingEnabled = true;
+            this.employeeRoleCombobox.Items.AddRange(new object[] {
+            "Staff",
+            "Admin"});
+            this.employeeRoleCombobox.Location = new System.Drawing.Point(597, 52);
+            this.employeeRoleCombobox.Name = "employeeRoleCombobox";
+            this.employeeRoleCombobox.Size = new System.Drawing.Size(158, 28);
+            this.employeeRoleCombobox.TabIndex = 30;
+            this.employeeRoleCombobox.Text = "Select Role";
             // 
             // label13
             // 
@@ -1007,45 +975,45 @@ namespace TicketAndVisitorMS
             // 
             this.panel10.BackColor = System.Drawing.Color.White;
             this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.textBox3);
+            this.panel10.Controls.Add(this.employeeIdTextBox);
             this.panel10.Location = new System.Drawing.Point(252, 46);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(219, 38);
             this.panel10.TabIndex = 14;
             // 
-            // textBox3
+            // employeeIdTextBox
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox3.Location = new System.Drawing.Point(13, 8);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(203, 21);
-            this.textBox3.TabIndex = 0;
+            this.employeeIdTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.employeeIdTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.employeeIdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.employeeIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeIdTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.employeeIdTextBox.Location = new System.Drawing.Point(13, 8);
+            this.employeeIdTextBox.Name = "employeeIdTextBox";
+            this.employeeIdTextBox.Size = new System.Drawing.Size(203, 21);
+            this.employeeIdTextBox.TabIndex = 0;
             // 
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.White;
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel17.Controls.Add(this.textBox10);
+            this.panel17.Controls.Add(this.employeeAddressTextBox);
             this.panel17.Location = new System.Drawing.Point(196, 173);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(219, 38);
             this.panel17.TabIndex = 28;
             // 
-            // textBox10
+            // employeeAddressTextBox
             // 
-            this.textBox10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox10.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox10.Location = new System.Drawing.Point(13, 8);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(203, 21);
-            this.textBox10.TabIndex = 0;
+            this.employeeAddressTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.employeeAddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.employeeAddressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.employeeAddressTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeAddressTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.employeeAddressTextBox.Location = new System.Drawing.Point(13, 8);
+            this.employeeAddressTextBox.Name = "employeeAddressTextBox";
+            this.employeeAddressTextBox.Size = new System.Drawing.Size(203, 21);
+            this.employeeAddressTextBox.TabIndex = 0;
             // 
             // label14
             // 
@@ -1071,45 +1039,45 @@ namespace TicketAndVisitorMS
             // 
             this.panel11.BackColor = System.Drawing.Color.White;
             this.panel11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel11.Controls.Add(this.textBox4);
+            this.panel11.Controls.Add(this.employeeUserNameTextBox);
             this.panel11.Location = new System.Drawing.Point(242, 108);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(219, 38);
             this.panel11.TabIndex = 16;
             // 
-            // textBox4
+            // employeeUserNameTextBox
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox4.Location = new System.Drawing.Point(13, 8);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(203, 21);
-            this.textBox4.TabIndex = 0;
+            this.employeeUserNameTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.employeeUserNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.employeeUserNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.employeeUserNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeUserNameTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.employeeUserNameTextBox.Location = new System.Drawing.Point(13, 8);
+            this.employeeUserNameTextBox.Name = "employeeUserNameTextBox";
+            this.employeeUserNameTextBox.Size = new System.Drawing.Size(203, 21);
+            this.employeeUserNameTextBox.TabIndex = 0;
             // 
             // panel16
             // 
             this.panel16.BackColor = System.Drawing.Color.White;
             this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel16.Controls.Add(this.textBox9);
+            this.panel16.Controls.Add(this.employeeConfirmPasswordTextBox);
             this.panel16.Location = new System.Drawing.Point(981, 173);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(219, 38);
             this.panel16.TabIndex = 26;
             // 
-            // textBox9
+            // employeeConfirmPasswordTextBox
             // 
-            this.textBox9.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox9.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox9.Location = new System.Drawing.Point(13, 8);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(203, 21);
-            this.textBox9.TabIndex = 0;
+            this.employeeConfirmPasswordTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.employeeConfirmPasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.employeeConfirmPasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.employeeConfirmPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeConfirmPasswordTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.employeeConfirmPasswordTextBox.Location = new System.Drawing.Point(13, 8);
+            this.employeeConfirmPasswordTextBox.Name = "employeeConfirmPasswordTextBox";
+            this.employeeConfirmPasswordTextBox.Size = new System.Drawing.Size(203, 21);
+            this.employeeConfirmPasswordTextBox.TabIndex = 0;
             // 
             // label15
             // 
@@ -1135,45 +1103,45 @@ namespace TicketAndVisitorMS
             // 
             this.panel12.BackColor = System.Drawing.Color.White;
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel12.Controls.Add(this.textBox5);
+            this.panel12.Controls.Add(this.employeePasswordTextBox);
             this.panel12.Location = new System.Drawing.Point(549, 173);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(219, 38);
             this.panel12.TabIndex = 18;
             // 
-            // textBox5
+            // employeePasswordTextBox
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox5.Location = new System.Drawing.Point(13, 8);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(203, 21);
-            this.textBox5.TabIndex = 0;
+            this.employeePasswordTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.employeePasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.employeePasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.employeePasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeePasswordTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.employeePasswordTextBox.Location = new System.Drawing.Point(13, 8);
+            this.employeePasswordTextBox.Name = "employeePasswordTextBox";
+            this.employeePasswordTextBox.Size = new System.Drawing.Size(203, 21);
+            this.employeePasswordTextBox.TabIndex = 0;
             // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.White;
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel15.Controls.Add(this.textBox8);
+            this.panel15.Controls.Add(this.employeeMobileNoTextBox);
             this.panel15.Location = new System.Drawing.Point(951, 104);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(219, 38);
             this.panel15.TabIndex = 24;
             // 
-            // textBox8
+            // employeeMobileNoTextBox
             // 
-            this.textBox8.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox8.Location = new System.Drawing.Point(13, 8);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(203, 21);
-            this.textBox8.TabIndex = 0;
+            this.employeeMobileNoTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.employeeMobileNoTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.employeeMobileNoTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.employeeMobileNoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeMobileNoTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.employeeMobileNoTextBox.Location = new System.Drawing.Point(13, 8);
+            this.employeeMobileNoTextBox.Name = "employeeMobileNoTextBox";
+            this.employeeMobileNoTextBox.Size = new System.Drawing.Size(203, 21);
+            this.employeeMobileNoTextBox.TabIndex = 0;
             // 
             // label16
             // 
@@ -1199,45 +1167,45 @@ namespace TicketAndVisitorMS
             // 
             this.panel13.BackColor = System.Drawing.Color.White;
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.textBox6);
+            this.panel13.Controls.Add(this.employeeNameTextBox);
             this.panel13.Location = new System.Drawing.Point(878, 46);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(219, 38);
             this.panel13.TabIndex = 20;
             // 
-            // textBox6
+            // employeeNameTextBox
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox6.Location = new System.Drawing.Point(13, 8);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(203, 21);
-            this.textBox6.TabIndex = 0;
+            this.employeeNameTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.employeeNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.employeeNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.employeeNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeNameTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.employeeNameTextBox.Location = new System.Drawing.Point(13, 8);
+            this.employeeNameTextBox.Name = "employeeNameTextBox";
+            this.employeeNameTextBox.Size = new System.Drawing.Size(203, 21);
+            this.employeeNameTextBox.TabIndex = 0;
             // 
             // panel14
             // 
             this.panel14.BackColor = System.Drawing.Color.White;
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel14.Controls.Add(this.textBox7);
+            this.panel14.Controls.Add(this.employeeEmailTextBox);
             this.panel14.Location = new System.Drawing.Point(547, 108);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(219, 38);
             this.panel14.TabIndex = 22;
             // 
-            // textBox7
+            // employeeEmailTextBox
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.textBox7.Location = new System.Drawing.Point(12, 8);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(203, 21);
-            this.textBox7.TabIndex = 0;
+            this.employeeEmailTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.employeeEmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.employeeEmailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.employeeEmailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeEmailTextBox.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.employeeEmailTextBox.Location = new System.Drawing.Point(12, 8);
+            this.employeeEmailTextBox.Name = "employeeEmailTextBox";
+            this.employeeEmailTextBox.Size = new System.Drawing.Size(203, 21);
+            this.employeeEmailTextBox.TabIndex = 0;
             // 
             // label18
             // 
@@ -1277,16 +1245,16 @@ namespace TicketAndVisitorMS
             // 
             // chart3
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart3.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart3.Legends.Add(legend4);
+            chartArea16.Name = "ChartArea1";
+            this.chart3.ChartAreas.Add(chartArea16);
+            legend16.Name = "Legend1";
+            this.chart3.Legends.Add(legend16);
             this.chart3.Location = new System.Drawing.Point(44, 61);
             this.chart3.Name = "chart3";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chart3.Series.Add(series4);
+            series16.ChartArea = "ChartArea1";
+            series16.Legend = "Legend1";
+            series16.Name = "Series1";
+            this.chart3.Series.Add(series16);
             this.chart3.Size = new System.Drawing.Size(543, 307);
             this.chart3.TabIndex = 28;
             this.chart3.Text = "chart3";
@@ -1312,16 +1280,16 @@ namespace TicketAndVisitorMS
             // 
             // chart2
             // 
-            chartArea5.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart2.Legends.Add(legend5);
+            chartArea17.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea17);
+            legend17.Name = "Legend1";
+            this.chart2.Legends.Add(legend17);
             this.chart2.Location = new System.Drawing.Point(31, 58);
             this.chart2.Name = "chart2";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.chart2.Series.Add(series5);
+            series17.ChartArea = "ChartArea1";
+            series17.Legend = "Legend1";
+            series17.Name = "Series1";
+            this.chart2.Series.Add(series17);
             this.chart2.Size = new System.Drawing.Size(543, 307);
             this.chart2.TabIndex = 27;
             this.chart2.Text = "chart2";
@@ -1424,16 +1392,16 @@ namespace TicketAndVisitorMS
             // 
             // chart1
             // 
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
+            chartArea18.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea18);
+            legend18.Name = "Legend1";
+            this.chart1.Legends.Add(legend18);
             this.chart1.Location = new System.Drawing.Point(3, 54);
             this.chart1.Name = "chart1";
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chart1.Series.Add(series6);
+            series18.ChartArea = "ChartArea1";
+            series18.Legend = "Legend1";
+            series18.Name = "Series1";
+            this.chart1.Series.Add(series18);
             this.chart1.Size = new System.Drawing.Size(637, 322);
             this.chart1.TabIndex = 26;
             this.chart1.Text = "chart1";
@@ -1493,6 +1461,62 @@ namespace TicketAndVisitorMS
             this.label31.Size = new System.Drawing.Size(110, 25);
             this.label31.TabIndex = 18;
             this.label31.Text = "Daily report";
+            // 
+            // EmployeeID
+            // 
+            this.EmployeeID.HeaderText = "Employee ID";
+            this.EmployeeID.MinimumWidth = 6;
+            this.EmployeeID.Name = "EmployeeID";
+            this.EmployeeID.Width = 125;
+            // 
+            // Username
+            // 
+            this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.Width = 125;
+            // 
+            // NameHeader
+            // 
+            this.NameHeader.HeaderText = "Name";
+            this.NameHeader.MinimumWidth = 6;
+            this.NameHeader.Name = "NameHeader";
+            this.NameHeader.Width = 125;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.Width = 125;
+            // 
+            // MobileNumber
+            // 
+            this.MobileNumber.HeaderText = "Mobile Number";
+            this.MobileNumber.MinimumWidth = 6;
+            this.MobileNumber.Name = "MobileNumber";
+            this.MobileNumber.Width = 125;
+            // 
+            // Address
+            // 
+            this.Address.HeaderText = "Address";
+            this.Address.MinimumWidth = 6;
+            this.Address.Name = "Address";
+            this.Address.Width = 125;
+            // 
+            // EmployeeRole
+            // 
+            this.EmployeeRole.HeaderText = "Employee Role";
+            this.EmployeeRole.MinimumWidth = 6;
+            this.EmployeeRole.Name = "EmployeeRole";
+            this.EmployeeRole.Width = 125;
+            // 
+            // EmployeePassword
+            // 
+            this.EmployeePassword.HeaderText = "Employee Password";
+            this.EmployeePassword.MinimumWidth = 6;
+            this.EmployeePassword.Name = "EmployeePassword";
+            this.EmployeePassword.Width = 180;
             // 
             // AdminPage
             // 
@@ -1628,53 +1652,46 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView ticketDetailsDataGrid;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox employeeIdTextBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox employeeConfirmPasswordTextBox;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox employeeMobileNoTextBox;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox employeeEmailTextBox;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox employeeNameTextBox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox employeePasswordTextBox;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox employeeUserNameTextBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox employeeRoleCombobox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox employeeAddressTextBox;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Button addEmployeeBtn;
         private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button clearEmployeeInputFields;
+        private System.Windows.Forms.Button editEmployeeBtn;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button exportEmployeeBtn;
+        private System.Windows.Forms.Button importEmployeeBtn;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridView employeeDatailsDatagrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameHeader;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MobileNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeRole;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button ticketClearBtn;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button deleteEmployeeBtn;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -1701,5 +1718,13 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.DataGridViewTextBoxColumn DurationHead;
         private System.Windows.Forms.DataGridViewTextBoxColumn DayHead;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPriceHead;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameHeader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MobileNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeeRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmployeePassword;
     }
 }

@@ -30,6 +30,7 @@ namespace TicketAndVisitorMS
         private void InitializeComponent()
         {
             this.CategoryPanel = new System.Windows.Forms.Panel();
+            this.deleteBtn = new System.Windows.Forms.Button();
             this.TicketInfoPanel = new System.Windows.Forms.Panel();
             this.TicketInfoIdBox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -55,7 +56,7 @@ namespace TicketAndVisitorMS
             this.DayPanel = new System.Windows.Forms.Panel();
             this.DayBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.visitorDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.CheckOutTimePicker = new System.Windows.Forms.DateTimePicker();
             this.CheckInTimePicker = new System.Windows.Forms.DateTimePicker();
@@ -78,8 +79,8 @@ namespace TicketAndVisitorMS
             this.editBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.deleteBtn = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.visitorDataGridView = new System.Windows.Forms.DataGridView();
             this.TicketNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckInTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckOutTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,7 +95,7 @@ namespace TicketAndVisitorMS
             this.NoOfIndividualHead = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openCSVBtn = new System.Windows.Forms.Button();
             this.exportToCSVBtn = new System.Windows.Forms.Button();
-            this.loadFromXMLBtn = new System.Windows.Forms.Button();
+            this.importVisitorDetailsBtn = new System.Windows.Forms.Button();
             this.saveToXMLBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -111,7 +112,6 @@ namespace TicketAndVisitorMS
             this.enterVisitorPanel = new System.Windows.Forms.Panel();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.CategoryPanel.SuspendLayout();
             this.TicketInfoPanel.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -125,7 +125,7 @@ namespace TicketAndVisitorMS
             this.VisitorNamePanel.SuspendLayout();
             this.TicketIDPanel.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visitorDataGridView)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -153,7 +153,7 @@ namespace TicketAndVisitorMS
             this.CategoryPanel.Controls.Add(this.label11);
             this.CategoryPanel.Controls.Add(this.DayPanel);
             this.CategoryPanel.Controls.Add(this.label10);
-            this.CategoryPanel.Controls.Add(this.dateTimePicker2);
+            this.CategoryPanel.Controls.Add(this.visitorDatePicker);
             this.CategoryPanel.Controls.Add(this.label9);
             this.CategoryPanel.Controls.Add(this.CheckOutTimePicker);
             this.CategoryPanel.Controls.Add(this.CheckInTimePicker);
@@ -176,6 +176,16 @@ namespace TicketAndVisitorMS
             this.CategoryPanel.Size = new System.Drawing.Size(1376, 407);
             this.CategoryPanel.TabIndex = 0;
             this.CategoryPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Location = new System.Drawing.Point(621, 350);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(104, 49);
+            this.deleteBtn.TabIndex = 10;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
             // TicketInfoPanel
             // 
@@ -435,13 +445,13 @@ namespace TicketAndVisitorMS
             this.label10.TabIndex = 28;
             this.label10.Text = "Day:";
             // 
-            // dateTimePicker2
+            // visitorDatePicker
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(688, 13);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(250, 24);
-            this.dateTimePicker2.TabIndex = 27;
+            this.visitorDatePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.visitorDatePicker.Location = new System.Drawing.Point(688, 13);
+            this.visitorDatePicker.Name = "visitorDatePicker";
+            this.visitorDatePicker.Size = new System.Drawing.Size(250, 24);
+            this.visitorDatePicker.TabIndex = 27;
             // 
             // label9
             // 
@@ -667,31 +677,30 @@ namespace TicketAndVisitorMS
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.visitorDataGridView);
             this.panel2.Controls.Add(this.openCSVBtn);
             this.panel2.Controls.Add(this.exportToCSVBtn);
-            this.panel2.Controls.Add(this.loadFromXMLBtn);
+            this.panel2.Controls.Add(this.importVisitorDetailsBtn);
             this.panel2.Controls.Add(this.saveToXMLBtn);
             this.panel2.Location = new System.Drawing.Point(10, 411);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1376, 366);
             this.panel2.TabIndex = 1;
             // 
-            // deleteBtn
+            // button2
             // 
-            this.deleteBtn.Location = new System.Drawing.Point(621, 350);
-            this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(104, 49);
-            this.deleteBtn.TabIndex = 10;
-            this.deleteBtn.Text = "Delete";
-            this.deleteBtn.UseVisualStyleBackColor = true;
-            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            this.button2.Location = new System.Drawing.Point(240, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(130, 49);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Clear Selection";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // visitorDataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.visitorDataGridView.AllowUserToAddRows = false;
+            this.visitorDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.visitorDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TicketNo,
             this.CheckInTime,
             this.CheckOutTime,
@@ -704,15 +713,15 @@ namespace TicketAndVisitorMS
             this.TicketInfoIDHead,
             this.CategoryHead,
             this.NoOfIndividualHead});
-            this.dataGridView1.Location = new System.Drawing.Point(81, 67);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1111, 280);
-            this.dataGridView1.TabIndex = 14;
-            this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
+            this.visitorDataGridView.Location = new System.Drawing.Point(81, 67);
+            this.visitorDataGridView.Name = "visitorDataGridView";
+            this.visitorDataGridView.RowHeadersVisible = false;
+            this.visitorDataGridView.RowHeadersWidth = 51;
+            this.visitorDataGridView.RowTemplate.Height = 24;
+            this.visitorDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.visitorDataGridView.Size = new System.Drawing.Size(1111, 280);
+            this.visitorDataGridView.TabIndex = 14;
+            this.visitorDataGridView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
             // TicketNo
             // 
@@ -826,15 +835,15 @@ namespace TicketAndVisitorMS
             this.exportToCSVBtn.UseVisualStyleBackColor = true;
             this.exportToCSVBtn.Click += new System.EventHandler(this.exportToCSVBtn_Click);
             // 
-            // loadFromXMLBtn
+            // importVisitorDetailsBtn
             // 
-            this.loadFromXMLBtn.Location = new System.Drawing.Point(81, 12);
-            this.loadFromXMLBtn.Name = "loadFromXMLBtn";
-            this.loadFromXMLBtn.Size = new System.Drawing.Size(130, 49);
-            this.loadFromXMLBtn.TabIndex = 11;
-            this.loadFromXMLBtn.Text = "Load from XML";
-            this.loadFromXMLBtn.UseVisualStyleBackColor = true;
-            this.loadFromXMLBtn.Click += new System.EventHandler(this.loadFromXMLBtn_Click);
+            this.importVisitorDetailsBtn.Location = new System.Drawing.Point(81, 12);
+            this.importVisitorDetailsBtn.Name = "importVisitorDetailsBtn";
+            this.importVisitorDetailsBtn.Size = new System.Drawing.Size(130, 49);
+            this.importVisitorDetailsBtn.TabIndex = 11;
+            this.importVisitorDetailsBtn.Text = "Import Visitor Details";
+            this.importVisitorDetailsBtn.UseVisualStyleBackColor = true;
+            this.importVisitorDetailsBtn.Click += new System.EventHandler(this.loadFromXMLBtn_Click);
             // 
             // saveToXMLBtn
             // 
@@ -1002,15 +1011,6 @@ namespace TicketAndVisitorMS
             this.label15.TabIndex = 0;
             this.label15.Text = "Search";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(240, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 49);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Clear Selection";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // EmployeePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1047,7 +1047,7 @@ namespace TicketAndVisitorMS
             this.TicketIDPanel.ResumeLayout(false);
             this.TicketIDPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.visitorDataGridView)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -1077,10 +1077,10 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.Button clearBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView visitorDataGridView;
         private System.Windows.Forms.Button openCSVBtn;
         private System.Windows.Forms.Button exportToCSVBtn;
-        private System.Windows.Forms.Button loadFromXMLBtn;
+        private System.Windows.Forms.Button importVisitorDetailsBtn;
         private System.Windows.Forms.Button saveToXMLBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Panel panel3;
@@ -1105,7 +1105,7 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.DateTimePicker CheckOutTimePicker;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker visitorDatePicker;
         private System.Windows.Forms.Panel DurationPanel;
         private System.Windows.Forms.TextBox DurationBox;
         private System.Windows.Forms.Label label12;

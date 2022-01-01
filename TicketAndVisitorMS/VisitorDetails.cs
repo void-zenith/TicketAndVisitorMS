@@ -8,12 +8,25 @@ namespace TicketAndVisitorMS
 {
     public class VisitorDetails
     {
-        public string TicketNo { get; set; }
+        public string visitorTicketNo { get; set; }
 
-        public string Name { get; set; }
+        public string visitorName { get; set; }
 
-        public string TicketDetails { get; set; }
+        public string visitorContactNo { get; set; }
 
-        public string BookingDate { get; set; }
+        public string visitorCategory { get; set; }
+
+        public string visitorTicketInfoID { get; set; }
+
+        public string visitorDay { get; set; }
+        public string visitorCheckInTime { get; set; }
+
+        public string visitorCheckOutTime { get; set; }
+
+        public string visitorDuration { get; set; }
+
+        public DateTime visitorDate { get; set; }
+
+        public string visitorTotalPrice { get; set; }
     }
 }
