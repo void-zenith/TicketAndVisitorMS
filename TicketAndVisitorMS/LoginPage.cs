@@ -8,14 +8,47 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace TicketAndVisitorMS
 {
     public partial class LoginPage : Form
     {
+        private readonly string folderPath;
+        private List<Employee> employeesList;
+        private readonly XmlSerializer employeeXmlSerializer;
+        private readonly string employeeXMLFilePath;
+
         public LoginPage()
         {
             InitializeComponent();
+            folderPath = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            employeeXMLFilePath = folderPath + "\\EmployeeDetails.xml";
+            employeeXmlSerializer = new XmlSerializer(typeof(List<Employee>));
+        }
+
+        private List<Employee> EmployeesList
+        {
+            get
+            {
+                FileStream employeeFS;
+                employeesList = new List<Employee>();
+                if (File.Exists(employeeXMLFilePath))
+                {
+                    employeeFS = new FileStream(employeeXMLFilePath, FileMode.Open, FileAccess.Read);
+                    List<Employee> allEmp = (List<Employee>)employeeXmlSerializer.Deserialize(employeeFS);
+                    employeesList.AddRange(allEmp);
+                    return employeesList;
+                }
+                else
+                {
+                    string message = "Desired File not found";
+                    string title = "File not Found";
+                    _ = MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return null;
+                }
+            }
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -26,16 +59,41 @@ namespace TicketAndVisitorMS
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            if (userTextBox.Text.Contains("admin"))
+            List<Employee> employees = EmployeesList;
+            bool match = false;
+
+            if (!String.IsNullOrEmpty(userTextBox.Text) && !String.IsNullOrEmpty(passwordTextBox.Text))
             {
-                AdminPage adminPage = new AdminPage();
-                adminPage.Show();
+                foreach (Employee employee in employees)
+                {
+                    if (employee.employeeUserName == userTextBox.Text.Trim() && employee.employeePassword == passwordTextBox.Text.Trim())
+                    {
+                        match = true;
+
+                        this.Hide();
+                        if (employee.employeeRole == "Admin")
+                        {
+                            AdminPage adminPage = new AdminPage();
+                            adminPage.Show();
+                        }
+                        if (employee.employeeRole == "Staff")
+                        {
+                            EmployeePage employeePage = new EmployeePage();
+                            employeePage.Show();
+                        }
+                    }
+
+                    if (match) break;
+                }
+
+                if (!match)
+                {
+                    MessageBox.Show("Invalid username or password", "Login Failed!");
+                }
             }
             else
             {
-                EmployeePage employeePage = new EmployeePage();
-                employeePage.Show();
+                MessageBox.Show("Invalid username or password", "Login Failed!");
             }
         }
 

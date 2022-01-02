@@ -92,8 +92,8 @@ namespace TicketAndVisitorMS
             this.manageEmployeePanel = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.button12 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.employeeSortBtn = new System.Windows.Forms.Button();
+            this.employeeSortComboBox = new System.Windows.Forms.ComboBox();
             this.exportEmployeeBtn = new System.Windows.Forms.Button();
             this.importEmployeeBtn = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -764,8 +764,8 @@ namespace TicketAndVisitorMS
             // panel19
             // 
             this.panel19.Controls.Add(this.button12);
-            this.panel19.Controls.Add(this.button9);
-            this.panel19.Controls.Add(this.comboBox6);
+            this.panel19.Controls.Add(this.employeeSortBtn);
+            this.panel19.Controls.Add(this.employeeSortComboBox);
             this.panel19.Controls.Add(this.exportEmployeeBtn);
             this.panel19.Controls.Add(this.importEmployeeBtn);
             this.panel19.Controls.Add(this.label23);
@@ -784,23 +784,24 @@ namespace TicketAndVisitorMS
             this.button12.Text = "Clear Selection";
             this.button12.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // employeeSortBtn
             // 
-            this.button9.Location = new System.Drawing.Point(927, 24);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(97, 46);
-            this.button9.TabIndex = 35;
-            this.button9.Text = "Sort";
-            this.button9.UseVisualStyleBackColor = true;
+            this.employeeSortBtn.Location = new System.Drawing.Point(917, 31);
+            this.employeeSortBtn.Name = "employeeSortBtn";
+            this.employeeSortBtn.Size = new System.Drawing.Size(97, 46);
+            this.employeeSortBtn.TabIndex = 35;
+            this.employeeSortBtn.Text = "Sort";
+            this.employeeSortBtn.UseVisualStyleBackColor = true;
+            this.employeeSortBtn.Click += new System.EventHandler(this.employeeSortBtn_Click);
             // 
-            // comboBox6
+            // employeeSortComboBox
             // 
-            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(719, 39);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(181, 33);
-            this.comboBox6.TabIndex = 33;
+            this.employeeSortComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeSortComboBox.FormattingEnabled = true;
+            this.employeeSortComboBox.Location = new System.Drawing.Point(719, 39);
+            this.employeeSortComboBox.Name = "employeeSortComboBox";
+            this.employeeSortComboBox.Size = new System.Drawing.Size(181, 33);
+            this.employeeSortComboBox.TabIndex = 33;
             // 
             // exportEmployeeBtn
             // 
@@ -1523,9 +1524,9 @@ namespace TicketAndVisitorMS
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1537, 848);
+            this.Controls.Add(this.manageEmployeePanel);
             this.Controls.Add(this.weeklyReportPanel);
             this.Controls.Add(this.dailyReportPanel);
-            this.Controls.Add(this.manageEmployeePanel);
             this.Controls.Add(this.ticketDetailsPanel);
             this.Controls.Add(this.navbarPanel);
             this.Controls.Add(this.panel3);
@@ -1682,8 +1683,8 @@ namespace TicketAndVisitorMS
         private System.Windows.Forms.Button clearEmployeeInputFields;
         private System.Windows.Forms.Button editEmployeeBtn;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Button employeeSortBtn;
+        private System.Windows.Forms.ComboBox employeeSortComboBox;
         private System.Windows.Forms.Button exportEmployeeBtn;
         private System.Windows.Forms.Button importEmployeeBtn;
         private System.Windows.Forms.Label label23;

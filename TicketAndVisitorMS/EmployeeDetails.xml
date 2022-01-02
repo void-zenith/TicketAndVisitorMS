@@ -1,23 +1,23 @@
 <?xml version="1.0"?>
 <ArrayOfEmployee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Employee>
-    <employeeID>Esdf</employeeID>
-    <employeeUserName>sdf</employeeUserName>
-    <employeePassword>fdfdfdf</employeePassword>
-    <employeeName />
-    <employeeRole>Admin</employeeRole>
-    <employeeEmail />
-    <employeeMobileNumber />
-    <employeeAddress />
+    <employeeID>E</employeeID>
+    <employeeUserName>staff</employeeUserName>
+    <employeePassword>pass</employeePassword>
+    <employeeName>staff</employeeName>
+    <employeeRole>Staff</employeeRole>
+    <employeeEmail>staff@gmail.com</employeeEmail>
+    <employeeMobileNumber>6565</employeeMobileNumber>
+    <employeeAddress>adf</employeeAddress>
   </Employee>
   <Employee>
-    <employeeID>E</employeeID>
-    <employeeUserName />
-    <employeePassword>dfdfdfdf</employeePassword>
-    <employeeName />
-    <employeeRole>Staff</employeeRole>
-    <employeeEmail>dfd</employeeEmail>
-    <employeeMobileNumber />
-    <employeeAddress>dfdf</employeeAddress>
+    <employeeID>Eess</employeeID>
+    <employeeUserName>admin</employeeUserName>
+    <employeePassword>admin</employeePassword>
+    <employeeName>admin</employeeName>
+    <employeeRole>Admin</employeeRole>
+    <employeeEmail>admin</employeeEmail>
+    <employeeMobileNumber>98</employeeMobileNumber>
+    <employeeAddress>admin</employeeAddress>
   </Employee>
 </ArrayOfEmployee>

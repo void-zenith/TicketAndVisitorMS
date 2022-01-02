@@ -226,7 +226,7 @@ namespace TicketAndVisitorMS
             this.panel15.Controls.Add(this.importTicketDetailsEmpPage);
             this.panel15.Location = new System.Drawing.Point(762, 49);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(611, 350);
+            this.panel15.Size = new System.Drawing.Size(500, 350);
             this.panel15.TabIndex = 34;
             // 
             // ticketInfoDataGrid
@@ -306,7 +306,7 @@ namespace TicketAndVisitorMS
             "Duration",
             "Group",
             "Weekday"});
-            this.comboBox1.Location = new System.Drawing.Point(224, 12);
+            this.comboBox1.Location = new System.Drawing.Point(214, 20);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(152, 28);
             this.comboBox1.TabIndex = 35;

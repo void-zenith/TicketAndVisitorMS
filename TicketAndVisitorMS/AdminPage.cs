@@ -92,26 +92,41 @@ namespace TicketAndVisitorMS
         private void ticketAddBtn_Click(object sender, EventArgs e)
         {
             ticketDetailsList = new List<TicketDetails>();
-
-            TicketDetails ticketDetails = new TicketDetails
+            if (!String.IsNullOrWhiteSpace(TicketIDBox.Text) &&
+                    !String.IsNullOrWhiteSpace(noOfIndividualTextBox.Text) &&
+                    !String.IsNullOrWhiteSpace(totalPriceTextbox.Text))
             {
-                ticketID = $"T + {Convert.ToString(DateTime.Now.ToString("yyMMddHHmmssff"))}",
-                ticketCategory = categoryCombobox.SelectedItem.ToString(),
-                ticketNoOfIndividuals = Convert.ToInt32(noOfIndividualTextBox.Text.Trim()),
-                ticketDuration = durationCombobox.SelectedItem.ToString(),
-                ticketDay = dayCombobox.SelectedItem.ToString(),
-                ticketPrice = Convert.ToDouble(totalPriceTextbox.Text.Trim()),
-            };
-            ticketDetailsList.Add(ticketDetails);
-            ticketDetailsDataGrid.Rows.Add(ticketDetails.ticketID,
-                ticketDetails.ticketCategory,
-                ticketDetails.ticketNoOfIndividuals,
-                ticketDetails.ticketDuration,
-                ticketDetails.ticketDay,
-                ticketDetails.ticketPrice);
-            ticketDetailsDataGrid.Refresh();
-            ticketDetailsDataGrid.ClearSelection();
-            clearInputFields();
+                if (categoryCombobox.SelectedIndex > -1 && dayCombobox.SelectedIndex > -1)
+                {
+                    TicketDetails ticketDetails = new TicketDetails
+                    {
+                        ticketID = $"T + {Convert.ToString(DateTime.Now.ToString("yyMMddHHmmssff"))}",
+                        ticketCategory = categoryCombobox.SelectedItem.ToString(),
+                        ticketNoOfIndividuals = Convert.ToInt32(noOfIndividualTextBox.Text.Trim()),
+                        ticketDuration = durationCombobox.SelectedItem.ToString(),
+                        ticketDay = dayCombobox.SelectedItem.ToString(),
+                        ticketPrice = Convert.ToDouble(totalPriceTextbox.Text.Trim()),
+                    };
+                    ticketDetailsList.Add(ticketDetails);
+                    ticketDetailsDataGrid.Rows.Add(ticketDetails.ticketID,
+                        ticketDetails.ticketCategory,
+                        ticketDetails.ticketNoOfIndividuals,
+                        ticketDetails.ticketDuration,
+                        ticketDetails.ticketDay,
+                        ticketDetails.ticketPrice);
+                    ticketDetailsDataGrid.Refresh();
+                    ticketDetailsDataGrid.ClearSelection();
+                    clearInputFields();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a item from combobox", "Invalid input");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Text Fields are empty", "Invalid input");
+            }
         }
 
         private void exportTicketDetailsBtn_Click(object sender, EventArgs e)
@@ -188,15 +203,22 @@ namespace TicketAndVisitorMS
                     !String.IsNullOrWhiteSpace(noOfIndividualTextBox.Text) &&
                     !String.IsNullOrWhiteSpace(totalPriceTextbox.Text))
                     {
-                        ticketDetailsDataGrid.Rows[0].Cells[0].Value = TicketIDBox.Text.Trim();
-                        ticketDetailsDataGrid.Rows[0].Cells[1].Value = categoryCombobox.SelectedItem.ToString();
-                        ticketDetailsDataGrid.Rows[0].Cells[2].Value = noOfIndividualTextBox.Text.Trim();
-                        ticketDetailsDataGrid.Rows[0].Cells[3].Value = durationCombobox.SelectedItem.ToString();
-                        ticketDetailsDataGrid.Rows[0].Cells[4].Value = dayCombobox.SelectedItem.ToString();
-                        ticketDetailsDataGrid.Rows[0].Cells[5].Value = totalPriceTextbox.Text.Trim();
+                        if (categoryCombobox.SelectedIndex > -1 && dayCombobox.SelectedIndex > -1)
+                        {
+                            ticketDetailsDataGrid.Rows[0].Cells[0].Value = TicketIDBox.Text.Trim();
+                            ticketDetailsDataGrid.Rows[0].Cells[1].Value = categoryCombobox.SelectedItem.ToString();
+                            ticketDetailsDataGrid.Rows[0].Cells[2].Value = noOfIndividualTextBox.Text.Trim();
+                            ticketDetailsDataGrid.Rows[0].Cells[3].Value = durationCombobox.SelectedItem.ToString();
+                            ticketDetailsDataGrid.Rows[0].Cells[4].Value = dayCombobox.SelectedItem.ToString();
+                            ticketDetailsDataGrid.Rows[0].Cells[5].Value = totalPriceTextbox.Text.Trim();
 
-                        clearInputFields();
-                        isRowSelected = false;
+                            clearInputFields();
+                            isRowSelected = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please select a item from combobox", "Invalid input");
+                        }
                     }
                     else
                     {
@@ -323,25 +345,44 @@ namespace TicketAndVisitorMS
 
         private void addEmployeeBtn_Click(object sender, EventArgs e)
         {
-            employeeList = new List<Employee>();
-
-            Employee employee = new Employee
+            if (!String.IsNullOrEmpty(employeeIdTextBox.Text)
+                && !String.IsNullOrEmpty(employeeNameTextBox.Text)
+                && !String.IsNullOrEmpty(employeeUserNameTextBox.Text)
+                && !String.IsNullOrEmpty(employeePasswordTextBox.Text)
+                && !String.IsNullOrEmpty(employeeAddressTextBox.Text)
+                && !String.IsNullOrEmpty(employeeEmailTextBox.Text)
+                && !String.IsNullOrEmpty(employeeMobileNoTextBox.Text))
             {
-                employeeID = $"E{employeeIdTextBox.Text.Trim()}",
-                employeeName = employeeNameTextBox.Text.Trim(),
-                employeeUserName = employeeUserNameTextBox.Text.Trim(),
-                employeePassword = employeePasswordTextBox.Text.Trim(),
-                employeeRole = employeeRoleCombobox.SelectedItem.ToString(),
-                employeeAddress = employeeAddressTextBox.Text.Trim(),
-                employeeEmail = employeeEmailTextBox.Text.Trim(),
-                employeeMobileNumber = employeeMobileNoTextBox.Text.Trim(),
-            };
-            employeeList.Add(employee);
-            employeeDatailsDatagrid.Rows.Add(employee.employeeID, employee.employeeUserName, employee.employeeName, employee.employeeEmail, employee.employeeMobileNumber, employee.employeeAddress, employee.employeeRole, employee.employeePassword);
+                if (employeeRoleCombobox.SelectedIndex > -1)
+                {
+                    employeeList = new List<Employee>();
 
-            employeeDatailsDatagrid.Refresh();
-            employeeDatailsDatagrid.ClearSelection();
-            clearEmpInputFields();
+                    Employee employee = new Employee
+                    {
+                        employeeID = $"E{employeeIdTextBox.Text.Trim()}",
+                        employeeName = employeeNameTextBox.Text.Trim(),
+                        employeeUserName = employeeUserNameTextBox.Text.Trim(),
+                        employeePassword = employeePasswordTextBox.Text.Trim(),
+                        employeeRole = employeeRoleCombobox.SelectedItem.ToString(),
+                        employeeAddress = employeeAddressTextBox.Text.Trim(),
+                        employeeEmail = employeeEmailTextBox.Text.Trim(),
+                        employeeMobileNumber = employeeMobileNoTextBox.Text.Trim(),
+                    };
+                    employeeList.Add(employee);
+                    employeeDatailsDatagrid.Rows.Add(employee.employeeID, employee.employeeUserName, employee.employeeName, employee.employeeEmail, employee.employeeMobileNumber, employee.employeeAddress, employee.employeeRole, employee.employeePassword);
+
+                    employeeDatailsDatagrid.Refresh();
+                    employeeDatailsDatagrid.ClearSelection();
+                    clearEmpInputFields();
+                }
+                else
+                {
+                }
+            }
+            else
+            {
+                MessageBox.Show("Text Fields are empty", "Invalid input");
+            }
         }
 
         private void clearEmployeeInputFields_Click(object sender, EventArgs e)
@@ -865,6 +906,10 @@ namespace TicketAndVisitorMS
             weeklyChartDataGrid.Refresh();
 
             GenerateWeeklyReportChart(weeklyReports);
+        }
+
+        private void employeeSortBtn_Click(object sender, EventArgs e)
+        {
         }
     }
 }
